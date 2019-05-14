@@ -1,6 +1,5 @@
 package Tree;
 
-
 /**
  * @author enyi.lr 递归实现
  * @version $Id: BSTRecursion.java, v 0.1 2019‐05‐12 11:01 PM enyi.lr Exp $$
@@ -293,10 +292,63 @@ public class BSTRecursion<E extends Comparable> {
 
     /*************************************************************************************************/
 
+    /**
+     * delete the node which value is value
+     *
+     * @param value
+     */
+    private void remove(E value) {
+        if (root == null) {
+            throw new IllegalArgumentException("BST is empty");
+        }
+        root = remove(root, value);
+    }
 
+    /**
+     * delete the node which value is value from root which root is currentRoot
+     *
+     * @param currentRoot
+     * @param value
+     * @return the new root after deleting value
+     */
+    private Node remove(Node currentRoot, E value) {
+        if (currentRoot == null) {
+            return null;
+        }
+        if (value.compareTo(currentRoot.value) < 0) {
+            currentRoot.left = remove(currentRoot.left, value);
 
+        } else if (value.compareTo(currentRoot.value) > 0) {
+            currentRoot.right = remove(currentRoot.right, value);
+        } else { // value.compareTo(currentRoot.value) == 0
+            // delete the node
+            if (currentRoot.left == null) {
+                Node right = currentRoot.right;
+                // 这句话可以没有吧？
+                currentRoot.right = null;
+                size--;
+                return right;
+            }
+            if (currentRoot.right == null) {
+                Node left = currentRoot.left;
+                currentRoot.left = null;
+                size--;
+                return left;
+            }
 
+            if (currentRoot.left != null && currentRoot.right != null) {
+                Node minimum = minimum(currentRoot.right);
+                Node rootAfterdeletingMin = deleteMinimum(currentRoot.right);
+                minimum.right = rootAfterdeletingMin;
+                minimum.left = currentRoot.left;
+                currentRoot.right = currentRoot.left = null;
+                // 注意次过程不需要维护size   deleteMinimum已经做size了
+                return minimum;
+            }
 
+        }
+        return currentRoot;
+    }
 
     /*************************************************************************************************/
 
