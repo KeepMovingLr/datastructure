@@ -1,2 +1,2 @@
 # datastructure
-data structure implemented by mysql
+data structure implemented by myself
