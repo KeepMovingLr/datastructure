@@ -1,5 +1,5 @@
-import Tree.BSTNONRecursion;
-import Tree.BSTRecursion;
+import tree.BSTNONRecursion;
+import tree.BSTRecursion;
 
 /**
  * @author enyi.lr

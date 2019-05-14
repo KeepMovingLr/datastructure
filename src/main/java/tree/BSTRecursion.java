@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 
 /**
  * @author enyi.lr 递归实现
