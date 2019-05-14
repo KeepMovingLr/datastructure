@@ -8,7 +8,7 @@ import Tree.BSTRecursion;
  */
 public class Main {
     public static void main(String[] args) {
-        BSTRecursion b = new BSTRecursion();
+        BSTRecursion bstRecursion = new BSTRecursion();
         BSTNONRecursion bstnonRecursion = new BSTNONRecursion();
     }
 }
