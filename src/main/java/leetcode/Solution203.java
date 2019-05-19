@@ -10,7 +10,29 @@ public class Solution203 {
 
     public ListNode removeElements(ListNode head, int val) {
 
-        return method1(head, val);
+        return removeElement(head, val);
+    }
+
+
+
+    /**
+     * @param head the header of the list
+     * @param val  the value need to be deleted
+     * @return new head after removed
+     */
+    private ListNode removeElement(ListNode head, int val) {
+        // 最小的情况是空链表
+        if (head == null) {
+            return null;
+        }
+        if (head.val == val) {
+            return removeElement(head.next, val);
+        } else {
+            ListNode resultHead = removeElement(head.next, val);
+            head.next = resultHead;
+            return head;
+        }
+
     }
 
     // do not use dummy head
@@ -47,6 +69,5 @@ public class Solution203 {
         }
         return dummyHead.next;
     }
-
 
 }

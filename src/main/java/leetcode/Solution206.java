@@ -8,7 +8,6 @@ import leetcode.assiststructure.ListNode;
  */
 public class Solution206 {
 
-
     public ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
@@ -22,6 +21,37 @@ public class Solution206 {
             current = current.next;
         }
         return dummyHead.next;
+    }
+
+    // O(n)
+    public ListNode reverseList2(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+
+        ListNode newHead = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+    // O(n*n)
+    public ListNode reverseList3(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode newHead = reverseList3(head.next);
+        ListNode current = newHead;
+        while (current.next != null) {
+            current = current.next;
+        }
+        head.next = null;
+        current.next = head;
+        return newHead;
     }
 
 }
