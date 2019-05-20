@@ -13,7 +13,7 @@ public class Solution283 {
         // use [0,k) save the non zero element that has been traversed
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
+            if (checkNonZore(nums[i])) {
                 nums[k] = nums[i];
                 k++;
             }
@@ -24,13 +24,15 @@ public class Solution283 {
 
     }
 
+
+
     public void moveZeroes4(int[] nums) {
         // use [0,k) save the non zero element that has been traversed
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != 0) {
+            if (checkNonZore(nums[i])) {
                 // swap
-                if (k != i){
+                if (k != i) {
                     int temp = nums[k];
                     nums[k] = nums[i];
                     nums[i] = temp;
@@ -44,7 +46,13 @@ public class Solution283 {
 
     }
 
-
+    private boolean checkNonZore(int digit) {
+        if (digit != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void moveZeroes2(int[] nums) {
         int[] nonZeroElement = new int[nums.length];

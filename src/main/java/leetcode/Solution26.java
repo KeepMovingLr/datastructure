@@ -10,7 +10,7 @@ import java.util.Set;
 public class Solution26 {
 
     public int removeDuplicates2(int[] nums) {
-        // use [0,k) save the un duplicate element has been traversal
+        // use [0,k) save the un duplicate element has been traversed
         int k = 0;
         for (int i = 0; i < nums.length; i++) {
             if (!contains(nums, k, nums[i])) {
