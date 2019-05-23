@@ -10,12 +10,12 @@ public class Solution11 {
         int rightIndex = height.length - 1;
         int currentMaxArea = 0;
         while (leftIndex < rightIndex) {
-            // compare 1
             int min = getMin(height[leftIndex], height[rightIndex]);
             int distence = rightIndex - leftIndex;
             int area = min * distence;
             currentMaxArea = getMax(area, currentMaxArea);
             if (height[leftIndex] < height[rightIndex]) {
+                // As maxArea depends on the smaller height and the with, there is no need move the higher one
                 leftIndex++;
             } else {
                 rightIndex--;
