@@ -1,4 +1,4 @@
-package leetcode.twopointer;
+package leetcode.twopointer.slidingwindow;
 
 import java.util.ArrayList;
 import java.util.HashMap;

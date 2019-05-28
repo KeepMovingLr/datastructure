@@ -1,4 +1,4 @@
-package leetcode.twopointer;
+package leetcode.twopointer.slidingwindow;
 
 /**
  * @author enyi.lr
