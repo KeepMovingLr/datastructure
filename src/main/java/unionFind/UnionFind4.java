@@ -49,7 +49,7 @@ public class UnionFind4 implements UF {
             parent[unionP] = unionQ;
         } else {
             parent[unionQ] = unionP;
-            rank[p] = rank[p] + 1;
+            rank[unionP] = rank[unionP] + 1;
         }
 
     }
