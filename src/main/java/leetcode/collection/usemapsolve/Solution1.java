@@ -8,6 +8,7 @@ import java.util.Map;
  * @version $Id: Solution1.java, v 0.1 2019‐06‐06 5:24 PM enyi.lr Exp $$
  */
 public class Solution1 {
+    // time complexity is O(n)  space complexity is O(n)
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         Map<Integer, Integer> map = new HashMap<>();
