@@ -34,7 +34,7 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     //  add an Element E to the Binary Search Tree which root is currentRoot with the recursion algorithm
-    public void add_1(Node currentRoot, E e) {
+    private void add_1(Node currentRoot, E e) {
         Node newNode = new Node(e);
         if (e.compareTo(currentRoot.value) < 0 && currentRoot.left == null) {
             currentRoot.left = newNode;
@@ -66,7 +66,7 @@ public class BSTRecursion<E extends Comparable> {
      * @param e           the element to be added
      * @return the new root of the tree after adding a new element
      */
-    public Node add_2(Node currentRoot, E e) {
+    private Node add_2(Node currentRoot, E e) {
         if (currentRoot == null) {
             size++;
             return new Node(e);
@@ -90,6 +90,12 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /*************************************************************************************************/
+
+    // 看二分搜索树中是否包含元素e
+    public boolean contains(E e){
+        return contains(root, e);
+    }
+
 
     /**
      * check if the tree which root is currentRoot contains element e
@@ -297,7 +303,7 @@ public class BSTRecursion<E extends Comparable> {
      *
      * @param value
      */
-    private void remove(E value) {
+    public void remove(E value) {
         if (root == null) {
             throw new IllegalArgumentException("BST is empty");
         }
@@ -349,6 +355,10 @@ public class BSTRecursion<E extends Comparable> {
         }
         return currentRoot;
     }
+
+    /*************************************************************************************************/
+
+
 
     /*************************************************************************************************/
 
