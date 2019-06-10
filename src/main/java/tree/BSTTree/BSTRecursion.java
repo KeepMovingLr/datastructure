@@ -1,4 +1,4 @@
-package tree;
+package tree.BSTTree;
 
 /**
  * @author enyi.lr 递归实现

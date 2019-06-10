@@ -1,4 +1,4 @@
-package tree;
+package tree.BSTTree;
 
 import java.util.ArrayDeque;
 import java.util.Stack;

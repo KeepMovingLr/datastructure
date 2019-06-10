@@ -177,7 +177,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
 
     public static void main(String[] args) {
 
-        System.out.println("Java_Concurrency_in_Practice");
+        System.out.println("pride-and-prejudice");
 
         ArrayList<String> words = new ArrayList<>();
         if (FileOperation.readFile("pride-and-prejudice.txt", words)) {

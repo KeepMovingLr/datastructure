@@ -1,6 +1,6 @@
 package setandmap.set;
 
-import tree.BSTRecursion;
+import tree.BSTTree.BSTRecursion;
 
 /**
  * @author enyi.lr
