@@ -1,20 +1,14 @@
 package leetcode.tree;
 
+import leetcode.assiststructure.TreeNode;
+
 /**
  * @author enyi.lr
  * @version $Id: Solution103.java, v 0.1 2019‐06‐11 10:19 AM enyi.lr Exp $$
  */
 public class Solution236 {
 
-    public class TreeNode {
-        int      val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     // recursive solution
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
