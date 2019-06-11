@@ -23,6 +23,24 @@ public class Solution206 {
         return dummyHead.next;
     }
 
+    public ListNode reverseList4(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode current = head;
+        ListNode next = current.next;
+        ListNode pre = null;
+        while (current != null) {
+            current.next = pre;
+            pre = current;
+            current = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        return pre;
+    }
+
     // O(n)
     public ListNode reverseList2(ListNode head) {
         if (head == null) {
