@@ -1,4 +1,4 @@
-package leetcode.top_k;
+package leetcode.heap.top_k;
 
 import queue.PriorityQueue;
 
