@@ -33,17 +33,25 @@ public class SortTestUtils {
         return array;
     }
 
+    public static int[] copy(int[] array) {
+        int[] result = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            result[i] = array[i];
+        }
+        return result;
+    }
+
     public static void testSort(String sortName, int[] array) throws Exception {
         Class<?> aClass = Class.forName("sort.SortInt");
         Object instance = aClass.newInstance();
-        long begin = System.nanoTime();
+        long begin = System.currentTimeMillis();
         Method method = aClass.getDeclaredMethod(sortName, int[].class);
 
         method.setAccessible(true);
         method.invoke(instance, array);
-        long end = System.nanoTime();
+        long end = System.currentTimeMillis();
 
-        System.out.println("time cost:" + (end - begin) / 1000);
+        System.out.println("time cost:" + (end - begin) + "ms");
 
     }
 
