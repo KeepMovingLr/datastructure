@@ -1,5 +1,8 @@
 package graph;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author enyi.lr
  * @version $Id: DenseGraph.java, v 0.1 2019‐06‐13 12:05 AM enyi.lr Exp $$
@@ -7,12 +10,22 @@ package graph;
  * Dense graph use Adjacency Matrix
  */
 public class DenseGraph {
-    // the count of the node
+    /**
+     * the count of the node
+     */
     private int     n;
-    // the count of the edge
+    /**
+     * the count of the edge
+     */
     private int     m;
-    // if it is a directed graph
+    /**
+     * if it is a directed graph
+     */
     private boolean directed;
+
+    /**
+     * use adjacency matrix to save graph
+     */
     private int[][] g;
 
     public DenseGraph(int n, boolean directed) {
@@ -21,6 +34,27 @@ public class DenseGraph {
         this.directed = directed;
         g = new int[n][n];
 
+    }
+
+    /**
+     * get all adjacent edges
+     *
+     * @param index
+     * @return
+     */
+    public int[] getAllAdjacentEdges(int index) {
+        List<Integer> list = new ArrayList<>();
+        int[] edges = g[index];
+        for (int i = 0; i < edges.length; i++) {
+            if (edges[i] == 1) {
+                list.add(i);
+            }
+        }
+        int[] result = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
+        }
+        return result;
     }
 
     public int getNodeCount() {
