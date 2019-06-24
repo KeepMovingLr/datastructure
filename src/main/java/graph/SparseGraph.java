@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -149,6 +150,35 @@ public class SparseGraph {
             }
         }
         return result;
+    }
+
+    /**********detect loop*****important and hard to understand******************************************************************************************************/
+
+    /**
+     * @param vertex
+     * @param visited
+     * @param previous from vertex to current node has been visited
+     * @return
+     */
+    public boolean hasLoop(int vertex, boolean[] visited, Set<Integer> previous) {
+        if (previous.contains(vertex)) {
+            return true;
+        }
+        if (visited[vertex]) {
+            return false;
+        }
+        visited[vertex] = true;
+        previous.add(vertex);
+        // check if all of the children has cycle
+        List<Integer> allAdjacentVertex = getAllAdjacentVertex(vertex);
+        for (Integer adjacentVertex : allAdjacentVertex) {
+            if (hasLoop(adjacentVertex, visited, previous)) {
+                return true;
+            }
+        }
+        // if all the children has no cycle, then remove it
+        previous.remove(vertex);
+        return false;
     }
 
     /**********BFS***********************************************************************************************************/
