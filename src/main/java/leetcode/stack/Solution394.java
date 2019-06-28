@@ -64,22 +64,6 @@ public class Solution394 {
         return result.reverse().toString();
     }
 
-
-
-    public boolean isInteger(String str) {
-        if (Character.isDigit(str.charAt(0))) {
-            return false;
-        }
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.isDigit(str.charAt(i))) {
-                break;
-            } else {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void main(String[] args) {
         Solution394 solution394 = new Solution394();
         System.out.println(solution394.decodeString("3[z]2[2[y]pq4[2[jk]e1[f]]]ef"));
