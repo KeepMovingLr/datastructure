@@ -1,4 +1,4 @@
-package leetcode.unionFind;
+package leetcode.graph;
 
 /**
  * @author enyi.lr
@@ -44,6 +44,15 @@ public class Solution200_3 {
         return count;
     }
 
+    /**
+     * use the dfs thinking to solve the problem
+     * @param grid
+     * @param row
+     * @param colomn
+     * @param visited
+     * @param rowNum
+     * @param columnNum
+     */
     public void dfs(char[][] grid, int row, int colomn, boolean[][] visited, int rowNum, int columnNum) {
         if (!visited[row][colomn]) {
             visited[row][colomn] = true;
