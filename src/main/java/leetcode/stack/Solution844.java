@@ -8,6 +8,8 @@ import java.util.Stack;
 /**
  * @author enyi.lr
  * @version $Id: Solution844.java, v 0.1 2019‐10‐14 6:50 PM enyi.lr Exp $$
+ *
+ * v2
  */
 public class Solution844 {
 
