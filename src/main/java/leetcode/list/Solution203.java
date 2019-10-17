@@ -4,8 +4,7 @@ import leetcode.assiststructure.ListNode;
 
 /**
  * @author enyi.lr
- * @version $Id: Solution203.java, v 0.1 2019‐05‐18 11:09 PM enyi.lr Exp $$
- * v2 2019‐10‐17
+ * @version $Id: Solution203.java, v 0.1 2019‐05‐18 11:09 PM enyi.lr Exp $$ v2 2019‐10‐17
  */
 public class Solution203 {
 
@@ -29,6 +28,20 @@ public class Solution203 {
         } else {
             ListNode resultHead = removeElement(head.next, val);
             head.next = resultHead;
+            return head;
+        }
+
+    }
+
+    private ListNode removeElement3(ListNode head, int val) {
+        // 最小的情况是空链表
+        if (head == null) {
+            return null;
+        }
+        if (head.val == val) {
+            return removeElement3(head.next, val);
+        } else {
+            head.next = removeElement3(head.next, val);
             return head;
         }
 
@@ -76,12 +89,12 @@ public class Solution203 {
         ListNode dummyHead = new ListNode(0);
         dummyHead.next = head;
         ListNode pre = dummyHead;
-        while (pre.next != null){
-            if (pre.next.val == val){
+        while (pre.next != null) {
+            if (pre.next.val == val) {
                 ListNode needDel = pre.next;
                 pre.next = pre.next.next;
                 needDel.next = null;
-            }else {
+            } else {
                 pre = pre.next;
             }
         }

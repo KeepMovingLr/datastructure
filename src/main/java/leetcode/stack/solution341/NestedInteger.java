@@ -1,6 +1,3 @@
-/**
- * Alipay.com Inc. Copyright (c) 2004‐2019 All Rights Reserved.
- */
 package leetcode.stack.solution341;
 
 import java.util.List;
