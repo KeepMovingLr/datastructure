@@ -5,6 +5,7 @@ import leetcode.assiststructure.ListNode;
 /**
  * @author enyi.lr
  * @version $Id: Solution203.java, v 0.1 2019‐05‐18 11:09 PM enyi.lr Exp $$
+ * v2 2019‐10‐17
  */
 public class Solution203 {
 
