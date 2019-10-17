@@ -13,8 +13,6 @@ public class Solution203 {
         return removeElement(head, val);
     }
 
-
-
     /**
      * @param head the header of the list
      * @param val  the value need to be deleted
@@ -65,6 +63,25 @@ public class Solution203 {
                 previous.next = previous.next.next;
             } else {
                 previous = previous.next;
+            }
+        }
+        return dummyHead.next;
+    }
+
+    public ListNode removeElements2(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode pre = dummyHead;
+        while (pre.next != null){
+            if (pre.next.val == val){
+                ListNode needDel = pre.next;
+                pre.next = pre.next.next;
+                needDel.next = null;
+            }else {
+                pre = pre.next;
             }
         }
         return dummyHead.next;
