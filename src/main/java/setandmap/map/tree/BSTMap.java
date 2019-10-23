@@ -1,6 +1,7 @@
-package setandmap.tree;
+package setandmap.map.tree;
 
 import setandmap.FileOperation;
+import setandmap.map.Map;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package setandmap.tree;
+package setandmap.map;
 
 /**
  * @author enyi.lr
