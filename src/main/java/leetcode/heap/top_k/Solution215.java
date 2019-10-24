@@ -9,6 +9,7 @@ import java.util.PriorityQueue;
 /**
  * @author enyi.lr
  * @version $Id: Solution215.java, v 0.1 2019‐05‐26 6:08 PM enyi.lr Exp $$
+ * v2
  */
 public class Solution215 {
 
@@ -29,6 +30,22 @@ public class Solution215 {
             }
         }
         return priorityQueue.remove();
+    }
+
+    // v2 2019‐10‐24
+    public int findKthLargest4(int[] nums, int k) {
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        for (int num : nums) {
+            if (priorityQueue.size() < k) {
+                priorityQueue.add(num);
+            } else {
+                if (priorityQueue.peek() < num){
+                    priorityQueue.remove();
+                    priorityQueue.add(num);
+                }
+            }
+        }
+        return priorityQueue.peek();
     }
 
     public int findKthLargest2(int[] nums, int k) {
