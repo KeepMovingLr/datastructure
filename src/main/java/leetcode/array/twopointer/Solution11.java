@@ -2,7 +2,7 @@ package leetcode.array.twopointer;
 
 /**
  * @author enyi.lr
- * @version $Id: Solution125.java, v 0.1 2019‐05‐22 12:12 AM enyi.lr Exp $$
+ * @version $Id: Solution125.java, v 0.1 2019‐05‐22 12:12 AM enyi.lr Exp $$ v2
  */
 public class Solution11 {
     public int maxArea(int[] height) {
@@ -40,6 +40,24 @@ public class Solution11 {
         } else {
             return y;
         }
+    }
+
+    public int maxArea2(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int maxArea = 0;
+        while (left <= right) {
+            int leftHight = height[left];
+            int rightHight = height[right];
+            int min = getMin(leftHight, rightHight);
+            maxArea = getMax((right - left) * min, maxArea);
+            if (leftHight < rightHight) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxArea;
     }
 
     public static void main(String[] args) {

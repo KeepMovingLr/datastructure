@@ -3,6 +3,7 @@ package leetcode.array.twopointer;
 /**
  * @author enyi.lr
  * @version $Id: Solution125.java, v 0.1 2019‐05‐22 12:12 AM enyi.lr Exp $$
+ * v2
  */
 public class Solution125 {
     public boolean isPalindrome(String s) {
