@@ -3,6 +3,7 @@ package leetcode.array.twopointer;
 /**
  * @author enyi.lr
  * @version $Id: Solution209.java, v 0.1 2019‐05‐22 10:28 PM enyi.lr Exp $$
+ * v2
  */
 public class Solution209 {
 
@@ -20,7 +21,32 @@ public class Solution209 {
     }
 
     public int minSubArrayLen(int s, int[] nums) {
-        return minSubArrayLen2(s, nums);
+        return minSubArrayLen3(s, nums);
+    }
+
+    public int minSubArrayLen3(int s, int[] nums) {
+        int left = 0;
+        int right = -1;
+        int sum = 0;
+        int minLength = nums.length + 100;
+        // nums[left,right] contains our satisfied value
+        while (right < nums.length && left < nums.length) {
+            if (sum < s && right + 1 < nums.length) {
+                right++;
+                sum = sum + nums[right];
+            } else {
+                sum = sum - nums[left];
+                left++;
+            }
+            if (sum >= s) {
+                minLength = getMin(minLength, right - left + 1);
+            }
+        }
+        if (minLength == nums.length + 100) {
+            return 0;
+        } else {
+            return minLength;
+        }
     }
 
     public int minSubArrayLen2(int s, int[] nums) {
