@@ -12,9 +12,33 @@ public class Solution3 {
 
     public static void main(String[] args) {
         Solution3 solution3 = new Solution3();
-        System.out.println(solution3.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(solution3.lengthOfLongestSubstring4("abcabcbb"));
 
     }
+
+    // good approach, very very good
+    public int lengthOfLongestSubstring4(String s) {
+        // use
+        int[] frequency = new int[256];
+        char[] chars = s.toCharArray();
+        int l = 0;
+        int r = -1;
+        int longestLength = 0;
+        int length = chars.length;
+        // use [l,r] to reserve the un repeated string
+        while (l < length) {
+            if (r + 1 < length && frequency[chars[r + 1]] == 0) {
+                r++;
+                frequency[chars[r]]++;
+            } else {
+                frequency[chars[l]]--;
+                l++;
+            }
+            longestLength = getMax(longestLength, r - l + 1);
+        }
+        return longestLength;
+    }
+
 
     public int lengthOfLongestSubstring(String s) {
         return lengthOfLongestSubstring3(s);
