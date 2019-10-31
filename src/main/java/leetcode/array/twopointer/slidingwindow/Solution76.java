@@ -7,8 +7,98 @@ import java.util.Map;
 /**
  * @author enyi.lr
  * @version $Id: Solution76.java, v 0.1 2019‐05‐23 1:51 AM enyi.lr Exp $$
+ * v2 2019‐10‐31
  */
 public class Solution76 {
+
+    public static void main(String[] args) {
+        Solution76 solution76 = new Solution76();
+        String s = solution76.minWindow2("ADOBECODEBANC", "ABC");
+        System.out.println(s);
+
+
+
+    }
+
+    public String minWindow2(String s, String t) {
+        if (t.length() > s.length()) {
+            return "";
+        }
+        if (t.equals(s)) {
+            return t;
+        }
+        String result = s + t + "aaaa";
+        Map<Character, Integer> characterFrequency = getCharacterFrequency(t);
+        int[] windowFrequency = new int[256];
+        // user windowFrequency[l,r] to reserve
+        int left = 0;
+        int right = -1;
+        char[] chars = s.toCharArray();
+        while (right < s.length() && left < s.length()) {
+            if (satisfiedResult(windowFrequency, characterFrequency)) {
+                if ((right - left + 1) < result.length()) {
+                    StringBuilder res = new StringBuilder();
+                    for (int j = left; j <= right; j++) {
+                        res.append(chars[j]);
+                    }
+                    result = res.toString();
+                }
+                windowFrequency[chars[left]]--;
+                left++;
+            } else {
+                right++;
+                if (right < s.length()) {
+                    windowFrequency[chars[right]]++;
+                } else {
+                    break;
+                }
+            }
+        }
+        if (result.length() == (s.length() + t.length() + 4)) {
+            return "";
+        } else {
+            return result;
+        }
+
+    }
+
+    private boolean satisfiedRe(int[] windowFrequency, int[] characterFrequencyArray, String t) {
+        for (char c : t.toCharArray()) {
+            if (characterFrequencyArray[c] > windowFrequency[c]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int[] getCharacterFrequencyArray(String t) {
+        int[] frequency = new int[256];
+        char[] chars = t.toCharArray();
+        for (char aChar : chars) {
+            frequency[aChar]++;
+        }
+        return frequency;
+    }
+
+    private boolean satisfiedResult(int[] windowFrequency, Map<Character, Integer> characterFrequency) {
+        for (Character key : characterFrequency.keySet()) {
+            if (windowFrequency[key] < characterFrequency.get(key)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private Map<Character, Integer> getCharacterFrequency(String t) {
+        Map<Character, Integer> characterFrequency = new HashMap<>();
+        char[] chars = t.toCharArray();
+        for (char c : chars) {
+            int count = characterFrequency.getOrDefault(c, 0);
+            count++;
+            characterFrequency.put(c, count);
+        }
+        return characterFrequency;
+    }
 
     public String minWindow(String s, String t) {
         if (t.length() > s.length()) {
@@ -88,13 +178,6 @@ public class Solution76 {
         return true;
     }
 
-    public static void main(String[] args) {
-        Solution76 solution76 = new Solution76();
-        String s = solution76.minWindow("a", "aa");
-        System.out.println(s);
 
-
-
-    }
 
 }
