@@ -76,6 +76,43 @@ public class Solution16 {
 
     }
 
+    public int threeSumClosest3(int[] nums, int target) {
+        if (nums.length < 3) {
+            return 0;
+        }
+        Arrays.sort(nums);
+
+        int sum = nums[0] + nums[1] + nums[2];
+        if (sum > target) {
+            return sum;
+        }
+        int sum2 = nums[nums.length - 1] + nums[nums.length - 2] + nums[nums.length - 3];
+
+        if (sum2 < target) {
+            return sum2;
+        }
+        for (int i = 0; i < nums.length - 2; i++) {
+            for (int j = i + 1; j < nums.length - 1; j++) {
+                for (int k = i + 2; k < nums.length; k++) {
+                    int newSum = nums[i] + nums[j] + nums[k];
+                    int distance = distance(target, sum);
+                    int distance1 = distance(target, newSum);
+                    if (newSum > target) {
+                        if (distance1 < distance) {
+                            sum = newSum;
+                        }
+                        break;
+                    } else {
+                        if (distance1 < distance) {
+                            sum = newSum;
+                        }
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         Solution16 solution16 = new Solution16();
         int[] arr = {-55, -24, -18, -11, -7, -3, 4, 5, 6, 9, 11, 23, 33};
