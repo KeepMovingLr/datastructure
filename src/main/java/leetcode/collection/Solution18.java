@@ -1,6 +1,5 @@
 package leetcode.collection;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,8 +10,55 @@ import java.util.Set;
 /**
  * @author enyi.lr
  * @version $Id: Solution18.java, v 0.1 2019‐06‐07 9:38 AM enyi.lr Exp $$
+ * v2
  */
 public class Solution18 {
+
+    public List<List<Integer>> fourSum3(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (nums.length < 4) {
+            return result;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            int first = nums[i];
+            for (int j = i + 1; j < nums.length; j++) {
+                int second = nums[j];
+                for (int k = j + 1; k < nums.length; k++) {
+                    int third = nums[k];
+                    for (int l = k + 1; l < nums.length; l++) {
+                        int total = nums[l] + first + second + third;
+                        if (total == target) {
+                            List<Integer> list = new ArrayList<>();
+                            list.add(first);
+                            list.add(second);
+                            list.add(third);
+                            list.add(nums[l]);
+                            Collections.sort(list);
+                            if (!result.contains(list)) {
+                                result.add(list);
+                            }
+                        }
+                        if (total > target) {
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Solution18 solution18 = new Solution18();
+        int[] arr = {1, -2, -5, -4, -3, 3, 3, 5};
+        List<List<Integer>> lists = solution18.fourSum3(arr, -11);
+        System.out.println(lists);
+
+    }
+
+
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
@@ -47,11 +93,7 @@ public class Solution18 {
             return result;
         }
         Arrays.sort(nums);
-        if (nums[0] > target) {
-            return result;
-        }
         Set<Integer> set = new HashSet<>();
-
         for (int i = 0; i < nums.length; i++) {
             int first = nums[i];
             for (int i1 = i + 1; i1 < nums.length; i1++) {
