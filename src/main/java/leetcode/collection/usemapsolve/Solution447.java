@@ -6,8 +6,42 @@ import java.util.Map;
 /**
  * @author enyi.lr
  * @version $Id: Solution447.java, v 0.1 2019‐05‐30 11:56 PM enyi.lr Exp $$
+ * v2
  */
 public class Solution447 {
+
+
+
+    public int numberOfBoomerangs2(int[][] points) {
+        int result = 0;
+        for (int i = 0; i < points.length; i++) {
+            Map<Integer, Integer> distanceCountMap = new HashMap<>();
+            int[] point = points[i];
+            for (int j = 0; j < points.length; j++) {
+                if (j != i) {
+                    int distance = distance(point, points[j]);
+                    Integer count = distanceCountMap.getOrDefault(distance, 0);
+                    count++;
+                    distanceCountMap.put(distance, count);
+                }
+            }
+            result = result + getCount2(distanceCountMap);
+        }
+        return result;
+    }
+
+    private int getCount2(Map<Integer, Integer> distanceCountMap) {
+        int result = 0;
+        for (Integer distance : distanceCountMap.keySet()) {
+            Integer count = distanceCountMap.get(distance);
+            if (count >= 2) {
+                int sum = count * (count - 1) ;
+                result = result + sum;
+            }
+
+        }
+        return result;
+    }
 
     public int numberOfBoomerangs(int[][] points) {
         int result = 0;
@@ -58,6 +92,8 @@ public class Solution447 {
         Solution447 solution447 = new Solution447();
         int[][] a = {{0, 0}, {1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         int re = solution447.numberOfBoomerangs(a);
+        int re2 = solution447.numberOfBoomerangs2(a);
         System.out.println(re);
+        System.out.println(re2);
     }
 }

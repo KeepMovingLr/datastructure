@@ -8,6 +8,8 @@ import java.util.Random;
  */
 public class SortInt {
 
+
+    /***************************************************************/
     public void selectionSort(int[] array) {
         // use [0,i] contains the satisfied value
         for (int i = 0; i < array.length; i++) {
@@ -21,18 +23,6 @@ public class SortInt {
             }
             // swap array[i] and array[j]
             swap(array, i, min_idx);
-        }
-    }
-
-    public void insertionSort(int[] array) {
-        for (int i = 1; i < array.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (array[j] < array[j - 1]) {
-                    swap(array, j, j - 1);
-                } else {
-                    break;
-                }
-            }
         }
     }
 
@@ -54,6 +44,21 @@ public class SortInt {
         }
     }
 
+    /***************************************************************/
+    public void insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (array[j] < array[j - 1]) {
+                    swap(array, j, j - 1);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+
+    /***************************************************************/
     public void bubbleSort(int[] array) {
         // array.length -1 is the times that need to be bubbled
         for (int j = 0; j < array.length - 1; j++) {
@@ -67,9 +72,27 @@ public class SortInt {
 
     }
 
+
+
+    /***************************************************************/
     // it is a Divide and Conquer algorithm
     public void mergeSort(int[] array) {
         __mergeSort(array, 0, array.length - 1);
+    }
+
+    // use recursive method to merge sort array[i,j]
+    private void __mergeSort(int[] array, int i, int j) {
+        if (i >= j) {
+            return;
+        }
+        int middle = i + (j - i) / 2;
+        __mergeSort(array, i, middle);
+        __mergeSort(array, middle + 1, j);
+
+        // optimize
+        if (array[middle] > array[middle + 1]) {
+            __merge(array, i, middle, j);
+        }
     }
 
     // important
@@ -82,6 +105,49 @@ public class SortInt {
 
         }
     }
+
+    // merge array[left,middle] and array[middle+1,right]
+    private void __merge(int[] array, int left, int middle, int right) {
+        if (left == right) {
+            return;
+        }
+        int[] temp = new int[right - left + 1];
+        int i = left;
+        int j = middle + 1;
+        int k = 0;
+        while (i <= middle && j <= right) {
+            if (array[i] < array[j]) {
+                temp[k] = array[i];
+                i++;
+            } else {
+                temp[k] = array[j];
+                j++;
+            }
+            k++;
+        }
+
+        if (i > middle) {
+            for (int l = j; l <= right; l++) {
+                temp[k] = array[l];
+                j++;
+                k++;
+            }
+        } else {
+            for (int l = i; l <= middle; l++) {
+                temp[k] = array[l];
+                i++;
+                k++;
+            }
+        }
+
+        int m = 0;
+        for (int l = left; l <= right; l++) {
+            array[l] = temp[m];
+            m++;
+        }
+    }
+
+    /***************************************************************/
 
     // 3-way quick sort
     public void quickSort3Ways(int[] array) {
@@ -182,61 +248,9 @@ public class SortInt {
         return j;
     }
 
-    // use recursive method to merge sort array[i,j]
-    private void __mergeSort(int[] array, int i, int j) {
-        if (i >= j) {
-            return;
-        }
-        int middle = i + (j - i) / 2;
-        __mergeSort(array, i, middle);
-        __mergeSort(array, middle + 1, j);
 
-        // optimize
-        if (array[middle] > array[middle + 1]) {
-            __merge(array, i, middle, j);
-        }
-    }
 
-    // merge array[left,middle] and array[middle+1,right]
-    private void __merge(int[] array, int left, int middle, int right) {
-        if (left == right) {
-            return;
-        }
-        int[] temp = new int[right - left + 1];
-        int i = left;
-        int j = middle + 1;
-        int k = 0;
-        while (i <= middle && j <= right) {
-            if (array[i] < array[j]) {
-                temp[k] = array[i];
-                i++;
-            } else {
-                temp[k] = array[j];
-                j++;
-            }
-            k++;
-        }
 
-        if (i > middle) {
-            for (int l = j; l <= right; l++) {
-                temp[k] = array[l];
-                j++;
-                k++;
-            }
-        } else {
-            for (int l = i; l <= middle; l++) {
-                temp[k] = array[l];
-                i++;
-                k++;
-            }
-        }
-
-        int m = 0;
-        for (int l = left; l <= right; l++) {
-            array[l] = temp[m];
-            m++;
-        }
-    }
 
     private void swap(int[] array, int indexI, int indexJ) {
         int arr = array[indexI];
