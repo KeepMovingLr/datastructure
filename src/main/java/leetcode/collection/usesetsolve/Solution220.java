@@ -8,8 +8,32 @@ import java.util.TreeSet;
 /**
  * @author enyi.lr
  * @version $Id: Solution220.java, v 0.1 2019‐06‐07 3:19 PM enyi.lr Exp $$
+ * v2
  */
 public class Solution220 {
+
+    //
+    public boolean containsNearbyAlmostDuplicate4(int[] nums, int k, int t) {
+        for (int i = 0; i < nums.length; i++) {
+
+        }
+        return false;
+    }
+
+    // force
+    // time complexity O(n^2)
+    public boolean containsNearbyAlmostDuplicate3(int[] nums, int k, int t) {
+        for (int i = 0; i < nums.length; i++) {
+            int a = nums[i];
+            for (int j = i+1; j < nums.length; j++) {
+                int b = nums[j];
+                if (distance2(a,b) <= t && distance2(i,j) <= k){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
         TreeSet<Long> set = new TreeSet<>();
@@ -75,10 +99,14 @@ public class Solution220 {
         return Math.abs(a - b);
     }
 
+    private long distance2(long a, long b) {
+        return Math.abs(a - b);
+    }
+
     public static void main(String[] args) {
         Solution220 solution220 = new Solution220();
-        int[] arr = {0, 2147483647};
-        System.out.println(solution220.containsNearbyAlmostDuplicate2(arr, 1, 2147483647));
+        int[] arr = {-1, 2147483647};
+        System.out.println(solution220.containsNearbyAlmostDuplicate3(arr, 1, 2147483647));
         System.out.println(Integer.MAX_VALUE);
     }
 
