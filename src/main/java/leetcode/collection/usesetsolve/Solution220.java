@@ -12,16 +12,33 @@ import java.util.TreeSet;
  */
 public class Solution220 {
 
+    public static void main(String[] args) {
+        Solution220 solution220 = new Solution220();
+        int[] arr = {1, 2, 3, 1};
+        System.out.println(solution220.containsNearbyAlmostDuplicate4(arr, 3, 0));
+        System.out.println(Integer.MAX_VALUE);
+    }
+
     //
     public boolean containsNearbyAlmostDuplicate4(int[] nums, int k, int t) {
+        TreeSet<Long> set = new TreeSet<>();
         for (int i = 0; i < nums.length; i++) {
-
+            int num = nums[i];
+            // satisfied();
+            if (satisfied2(set, num, t)) {
+                return true;
+            } else {
+                set.add((long) num);
+            }
+            if (set.size() >= k + 1) {
+                set.remove(new Long(nums[i - k]));
+            }
         }
         return false;
     }
 
     // force
-    // time complexity O(n^2)
+    // time complexity O(n^2)  n squared
     public boolean containsNearbyAlmostDuplicate3(int[] nums, int k, int t) {
         for (int i = 0; i < nums.length; i++) {
             int a = nums[i];
@@ -65,6 +82,35 @@ public class Solution220 {
         return false;
     }
 
+    private boolean satisfied2(TreeSet<Long> set, int value, int t) {
+        if (set.isEmpty()){
+            return false;
+        }
+        // floor--value--ceiling
+        Long ceiling = set.ceiling((long) value);
+        Long floor = set.floor((long) value);
+        if (floor == null) {
+            if (ceiling-value <= t){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (ceiling == null){
+            if (value-floor <= t){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        if (floor != null && ceiling != null){
+            if (ceiling - value <=t || value-floor <=t){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         TreeMap<Integer, Integer> map = new TreeMap<>();
         for (int i = 0; i < nums.length; i++) {
@@ -103,11 +149,6 @@ public class Solution220 {
         return Math.abs(a - b);
     }
 
-    public static void main(String[] args) {
-        Solution220 solution220 = new Solution220();
-        int[] arr = {-1, 2147483647};
-        System.out.println(solution220.containsNearbyAlmostDuplicate3(arr, 1, 2147483647));
-        System.out.println(Integer.MAX_VALUE);
-    }
+
 
 }

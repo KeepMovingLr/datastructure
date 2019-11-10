@@ -6,6 +6,7 @@ import java.util.Set;
 /**
  * @author enyi.lr
  * @version $Id: Solution200.java, v 0.1 2019‐06‐03 10:55 PM enyi.lr Exp $$
+ * v2
  */
 public class Solution200 {
     private class UnionFind {
