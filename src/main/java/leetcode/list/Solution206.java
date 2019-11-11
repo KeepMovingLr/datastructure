@@ -5,8 +5,30 @@ import leetcode.assiststructure.ListNode;
 /**
  * @author enyi.lr
  * @version $Id: Solution206.java, v 0.1 2019‐05‐19 12:31 AM enyi.lr Exp $$
+ * v2
  */
 public class Solution206 {
+
+    public ListNode reverseList5(ListNode head) {
+        if (head == null){
+            return null;
+        }
+        ListNode pre = null;
+        ListNode current = head;
+        ListNode next = head.next;
+
+        while (current!=null){
+            current.next = pre;
+            pre = current;
+            current = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        return pre;
+    }
+
+
 
     public ListNode reverseList(ListNode head) {
         if (head == null) {

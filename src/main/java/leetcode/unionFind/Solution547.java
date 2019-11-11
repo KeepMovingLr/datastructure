@@ -6,6 +6,7 @@ import java.util.Set;
 /**
  * @author enyi.lr
  * @version $Id: Solution547.java, v 0.1 2019‐06‐02 11:12 PM enyi.lr Exp $$
+ * v2
  */
 public class Solution547 {
     private class UnionFind2 {
@@ -128,4 +129,22 @@ public class Solution547 {
         return set.size();
     }
 
+    public int findCircleNum3(int[][] M) {
+        unionfind2 = new UnionFind2(M.length);
+        int count = M.length;
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < count; j++) {
+                if (i != j){
+                    if (M[i][j] == 1){
+                        unionfind2.unionElements(i,j);
+                    }
+                }
+            }
+        }
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < count; i++) {
+            set.add(unionfind2.find(i));
+        }
+        return set.size();
+    }
 }
