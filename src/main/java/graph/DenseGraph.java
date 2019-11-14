@@ -7,6 +7,7 @@ import java.util.List;
  * @author enyi.lr
  * @version $Id: DenseGraph.java, v 0.1 2019‐06‐13 12:05 AM enyi.lr Exp $$
  * <p>
+ * 稠密图
  * Dense graph use Adjacency Matrix
  */
 public class DenseGraph {

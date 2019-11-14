@@ -9,10 +9,12 @@ import leetcode.assiststructure.ListNode;
  */
 public class Solution92 {
 
+    // need to define variables before and know each meaning
     public ListNode reverseBetween2(ListNode head, int m, int n) {
         if (m == n) {
             return head;
         }
+        // need variable: mNode  nNode mNodePre nNodeNext current pre next
         ListNode mNode = head;
         ListNode nNode = head;
         for (int i = 1; i < m; i++) {
@@ -21,33 +23,37 @@ public class Solution92 {
         for (int i = 1; i < n; i++) {
             nNode = nNode.next;
         }
-        ListNode nNodePreNext = nNode.next;
-        ListNode mNodePrePre = null;
-        if (m != 1) {
-            mNodePrePre = head;
+        ListNode mNodePre = null;
+        if (mNode != head) {
+            mNodePre = head;
             for (int i = 1; i < m - 1; i++) {
-                mNodePrePre = mNodePrePre.next;
+                mNodePre = mNodePre.next;
             }
         }
-        // reverse m,n
-        ListNode mPre = null;
-        ListNode current = mNode;
+        ListNode nNodeNext = head;
+        for (int i = 1; i < n + 1; i++) {
+            nNodeNext = nNodeNext.next;
+        }
+        // current pre next
+        ListNode cur = mNode;
+        ListNode pre = null;
         ListNode next = mNode.next;
-        while (current != nNode) {
-            current.next = mPre;
-            mPre = current;
-            current = next;
+        while (cur != nNodeNext) {
+            cur.next = pre;
+            pre = cur;
+            cur = next;
             if (next != null) {
                 next = next.next;
             }
         }
-        current.next = mPre;
-        if (mNodePrePre == null){
-            return current;
+        mNode.next = nNodeNext;
+        if (mNodePre != null){
+            mNodePre.next = nNode;
+            return head;
+        } else {
+            return nNode;
         }
-        mNodePrePre.next = current;
-        mNode.next = nNodePreNext;
-        return head;
+
     }
 
 

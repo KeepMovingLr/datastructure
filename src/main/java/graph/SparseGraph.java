@@ -12,6 +12,7 @@ import java.util.Stack;
 /**
  * @author enyi.lr
  * @version $Id: SparseGraph.java, v 0.1 2019‐06‐13 12:19 AM enyi.lr Exp $$
+ * 稀疏图：邻接矩阵
  */
 public class SparseGraph {
 
@@ -48,7 +49,7 @@ public class SparseGraph {
         if (w < 0 || w >= n) {
             return;
         }
-        // 允许平行边 因为每次判断平行边的效率是O(n)
+        // 允许平行边 因为每次判断平行边的效率是O(n),成本有点高
         /*if (hasEdge(v, w)) {
             return;
         }*/
