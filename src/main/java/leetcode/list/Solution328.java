@@ -6,8 +6,41 @@ import leetcode.assiststructure.ListNode;
  * @author enyi.lr
  * @version $Id: Solution328.java, v 0.1 2019‐06‐15 2:22 AM enyi.lr Exp $$
  * the solution is similar with Solution86.  use two dummy head
+ * v2
  */
 public class Solution328 {
+
+    // todo
+    public ListNode oddEvenList2(ListNode head) {
+        if (head == null){
+            return head;
+        }
+        ListNode dummyHead = new ListNode(Integer.MAX_VALUE);
+        dummyHead.next = head;
+        ListNode curOdd = head;
+        ListNode preOdd = dummyHead;
+
+        ListNode cur = head.next;
+        ListNode pre = head;
+
+        int i = 2;
+        while (cur != null) {
+            if (isOdd(i)) {
+                ListNode needInsert = cur;
+                needInsert.next = curOdd.next;
+                curOdd.next = needInsert;
+                curOdd = curOdd.next;
+
+                pre.next = cur.next;
+                cur = pre.next;
+            } else {
+                pre = cur;
+                cur = cur.next;
+            }
+            i++;
+        }
+        return dummyHead.next;
+    }
 
 
     public ListNode oddEvenList(ListNode head) {

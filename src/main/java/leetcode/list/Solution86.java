@@ -9,7 +9,7 @@ import leetcode.assiststructure.ListNode;
  */
 public class Solution86 {
 
-    // todo
+
     public ListNode partition2(ListNode head, int x) {
         if (head == null) {
             return head;
@@ -20,22 +20,29 @@ public class Solution86 {
         // variable: satisfiedPre  satisfied  pre  cur
         ListNode satisfiedPre = dummyHead;
         ListNode satisfied = head;
-        ListNode pre = dummyHead;
-        ListNode cur = head;
+        // find the first satisfied
+        while (satisfied != null && satisfied.val < x) {
+            satisfied = satisfied.next;
+            satisfiedPre = satisfiedPre.next;
+        }
+        if (satisfied == null) {
+            // already partitioned
+            return head;
+        }
+        ListNode pre = satisfiedPre.next;
+        ListNode cur = satisfied.next;
         while (cur != null) {
             if (cur.val < x) {
-                satisfied = satisfied.next;
-                satisfiedPre = satisfiedPre.next;
+                ListNode needInsert = cur;
+                pre.next = cur.next;
+                cur = pre.next;
+                needInsert.next = satisfied;
+                satisfiedPre.next = needInsert;
+                satisfiedPre = needInsert;
             } else {
-                if (satisfied != cur) {
-                    pre.next = cur.next;
-                    satisfiedPre.next = cur;
-                    cur.next = satisfied;
-                    satisfiedPre = satisfiedPre.next;
-                }
+                cur = cur.next;
+                pre = pre.next;
             }
-            cur = cur.next;
-            pre = pre.next;
         }
         return dummyHead.next;
     }
