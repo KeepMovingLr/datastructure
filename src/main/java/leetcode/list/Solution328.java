@@ -10,15 +10,13 @@ import leetcode.assiststructure.ListNode;
  */
 public class Solution328 {
 
-    // todo
     public ListNode oddEvenList2(ListNode head) {
-        if (head == null){
+        if (head == null) {
             return head;
         }
         ListNode dummyHead = new ListNode(Integer.MAX_VALUE);
         dummyHead.next = head;
         ListNode curOdd = head;
-        ListNode preOdd = dummyHead;
 
         ListNode cur = head.next;
         ListNode pre = head;
@@ -27,12 +25,12 @@ public class Solution328 {
         while (cur != null) {
             if (isOdd(i)) {
                 ListNode needInsert = cur;
-                needInsert.next = curOdd.next;
-                curOdd.next = needInsert;
-                curOdd = curOdd.next;
-
                 pre.next = cur.next;
                 cur = pre.next;
+
+                needInsert.next = curOdd.next;
+                curOdd.next = needInsert;
+                curOdd = needInsert;
             } else {
                 pre = cur;
                 cur = cur.next;
