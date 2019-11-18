@@ -7,9 +7,13 @@ import java.util.Stack;
 /**
  * @author enyi.lr
  * @version $Id: Solution445.java, v 0.1 2019‐06‐15 2:55 AM enyi.lr Exp $$
+ * v2 2019/11/18
  */
 public class Solution445 {
-
+    // TODO: 2019/11/18
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        return null;
+    }
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(1);
         ListNode current = dummyHead.next;
