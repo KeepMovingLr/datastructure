@@ -45,10 +45,10 @@ public class UnionFind3 implements UF {
         int qAmount = sz[unionQ];
         if (pAmount > qAmount) {
             parent[unionQ] = unionP;
-            sz[unionP] = sz[unionP] + sz[unionP];
+            sz[unionP] = sz[unionQ] + sz[unionP];
         } else {
             parent[unionP] = unionQ;
-            sz[unionP] = sz[unionP] + sz[unionP];
+            sz[unionQ] = sz[unionQ] + sz[unionP];
         }
 
     }
