@@ -238,6 +238,7 @@ public class SortInt {
         }
         int v = array[left];
         int j = left;
+        // array[left+1,j] < v  array[j+1,i) > v
         for (int i = left + 1; i <= right; i++) {
             if (array[i] <= v) {
                 j++;
