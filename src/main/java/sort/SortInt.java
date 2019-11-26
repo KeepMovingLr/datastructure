@@ -203,7 +203,7 @@ public class SortInt {
                 // note that need not k++, because we need to check the swapped value
             }
         }
-        // bug fix
+        // todo bug fix
         swap(array, left, l - 1);
         l--;
         result[0] = l;

@@ -23,61 +23,69 @@ public class Solution2 {
 
     }
 
-    // TODO: 2019/11/18 need check the result
     public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
-        ListNode dummyHead1 = new ListNode(0);
-        dummyHead1.next = l1;
-        ListNode cur = l1;
-        Stack<Integer> stack1 = new Stack<>();
-        ListNode dummyHead2 = new ListNode(0);
-        dummyHead2.next = l2;
+        ListNode dummy = new ListNode(0);
+        ListNode dummyNext = dummy;
+        ListNode cur1 = l1;
         ListNode cur2 = l2;
-        Stack<Integer> stack2 = new Stack<>();
-        while (cur != null) {
-            stack1.push(cur.val);
-            cur = cur.next;
-        }
-        while (cur2 != null) {
-            stack2.push(cur2.val);
+        boolean addOne = false;
+        while (cur1 != null && cur2 != null) {
+            int val = 0;
+            if (!addOne) {
+                val = cur1.val + cur2.val;
+            } else {
+                val = cur1.val + cur2.val + 1;
+            }
+            if (val >= 10) {
+                val = val % 10;
+                addOne = true;
+            } else {
+                addOne = false;
+            }
+            ListNode newNode = new ListNode(val);
+            dummyNext.next = newNode;
+            dummyNext = dummyNext.next;
+
+            cur1 = cur1.next;
             cur2 = cur2.next;
         }
-
-        double sum = 0.0;
-        double i = 0;
-        while (!stack1.isEmpty()) {
-            double v = stack1.pop() * Math.pow(10.0, i);
-            sum = sum + v;
-            i++;
+        if (cur1 == null && cur2 == null) {
+            if (addOne) {
+                dummyNext.next = new ListNode(1);
+                dummyNext = dummyNext.next;
+            }
+            return dummy.next;
+        } else {
+            ListNode cur3;
+            if (cur1 != null) {
+                cur3 = cur1;
+            } else {
+                cur3 = cur2;
+            }
+            while (cur3 != null) {
+                int val = 0;
+                if (addOne) {
+                    val = 1 + cur3.val;
+                } else {
+                    val = cur3.val;
+                }
+                if (val >= 10) {
+                    val = val % 10;
+                    addOne = true;
+                } else {
+                    addOne = false;
+                }
+                dummyNext.next = new ListNode(val);
+                dummyNext = dummyNext.next;
+                cur3 = cur3.next;
+            }
         }
-
-        double sum2 = 0.0;
-        double i2 = 0;
-        while (!stack2.isEmpty()) {
-            double v = stack2.pop() * Math.pow(10.0, i2);
-            sum2 = sum2 + v;
-            i2++;
+        if (addOne) {
+            dummyNext.next = new ListNode(1);
+            dummyNext = dummyNext.next;
+            addOne = false;
         }
-
-        int total = (int)sum + (int)sum2;
-        if (total == 0){
-            return new ListNode(0);
-        }
-        ListNode dummyHead = new ListNode(0);
-        ListNode curTail = dummyHead;
-        while (total != 0) {
-            int v = total % 10;
-            ListNode node = new ListNode(v);
-            curTail.next = node;
-            curTail = node;
-            total = total / 10;
-        }
-        return dummyHead.next;
+        return dummy.next;
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
