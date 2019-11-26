@@ -6,7 +6,7 @@ import java.util.Arrays;
  * @author enyi.lr
  * @version $Id: Solution259.java, v 0.1 2019‐11‐04 2:59 PM enyi.lr Exp $$ v2
  */
-public class Solution259 {
+public class Solution259_3SumSmaller {
 
     public int threeSumSmaller(int[] nums, int target) {
         int result = 0;

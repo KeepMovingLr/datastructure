@@ -8,7 +8,7 @@ import java.util.Set;
  * @version $Id: Solution15.java, v 0.1 2019‐05‐28 7:33 PM enyi.lr Exp $$
  * v2
  */
-public class Solution217 {
+public class Solution217_ContainsDuplicate {
 
     // time complexity O(n)
     public boolean containsDuplicate(int[] nums) {

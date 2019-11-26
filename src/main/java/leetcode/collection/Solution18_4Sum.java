@@ -12,7 +12,7 @@ import java.util.Set;
  * @version $Id: Solution18.java, v 0.1 2019‐06‐07 9:38 AM enyi.lr Exp $$
  * v2
  */
-public class Solution18 {
+public class Solution18_4Sum {
 
     public List<List<Integer>> fourSum3(int[] nums, int target) {
         List<List<Integer>> result = new ArrayList<>();
@@ -51,7 +51,7 @@ public class Solution18 {
     }
 
     public static void main(String[] args) {
-        Solution18 solution18 = new Solution18();
+        Solution18_4Sum solution18 = new Solution18_4Sum();
         int[] arr = {1, -2, -5, -4, -3, 3, 3, 5};
         List<List<Integer>> lists = solution18.fourSum3(arr, -11);
         System.out.println(lists);

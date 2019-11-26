@@ -1,14 +1,12 @@
 package leetcode.collection;
 
-import array.Array;
-
 import java.util.Arrays;
 
 /**
  * @author enyi.lr
  * @version $Id: Solution16.java, v 0.1 2019‐06‐07 11:44 AM enyi.lr Exp $$
  */
-public class Solution16 {
+public class Solution16_3SumClosest {
     // O(n3)  brute force
     public int threeSumClosest(int[] nums, int target) {
         if (nums.length < 3) {
@@ -114,7 +112,7 @@ public class Solution16 {
     }
 
     public static void main(String[] args) {
-        Solution16 solution16 = new Solution16();
+        Solution16_3SumClosest solution16 = new Solution16_3SumClosest();
         int[] arr = {-55, -24, -18, -11, -7, -3, 4, 5, 6, 9, 11, 23, 33};
 
         int i = solution16.threeSumClosest2(arr, 0);

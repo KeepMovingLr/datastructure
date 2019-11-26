@@ -12,10 +12,10 @@ import java.util.Set;
  * @author enyi.lr
  * @version $Id: Solution49.java, v 0.1 2019‐05‐30 1:28 PM enyi.lr Exp $$ v2
  */
-public class Solution49 {
+public class Solution49_GroupAnagrams {
 
     public static void main(String[] args) {
-        Solution49 solution49 = new Solution49();
+        Solution49_GroupAnagrams solution49 = new Solution49_GroupAnagrams();
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> lists = solution49.groupAnagrams2(strs);
         System.out.println(lists);

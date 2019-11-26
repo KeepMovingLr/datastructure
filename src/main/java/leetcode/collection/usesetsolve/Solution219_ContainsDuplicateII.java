@@ -10,7 +10,7 @@ import java.util.Set;
  * @version $Id: Solution15.java, v 0.1 2019‐05‐28 7:33 PM enyi.lr Exp $$
  * v2
  */
-public class Solution219 {
+public class Solution219_ContainsDuplicateII {
 
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();

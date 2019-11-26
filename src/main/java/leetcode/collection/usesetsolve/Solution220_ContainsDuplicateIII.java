@@ -10,10 +10,10 @@ import java.util.TreeSet;
  * @version $Id: Solution220.java, v 0.1 2019‐06‐07 3:19 PM enyi.lr Exp $$
  * v2
  */
-public class Solution220 {
+public class Solution220_ContainsDuplicateIII {
 
     public static void main(String[] args) {
-        Solution220 solution220 = new Solution220();
+        Solution220_ContainsDuplicateIII solution220 = new Solution220_ContainsDuplicateIII();
         int[] arr = {1, 2, 3, 1};
         System.out.println(solution220.containsNearbyAlmostDuplicate4(arr, 3, 0));
         System.out.println(Integer.MAX_VALUE);
