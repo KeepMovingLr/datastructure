@@ -13,11 +13,11 @@ import java.util.Set;
  * @author enyi.lr
  * @version $Id: Solution15.java, v 0.1 2019‐05‐28 7:33 PM enyi.lr Exp $$ v2
  */
-public class Solution15 {
+public class Solution15_3Sum {
 
     public static void main(String[] args) {
         int[] nums = {-2,0,1,1,2};
-        Solution15 solution15 = new Solution15();
+        Solution15_3Sum solution15 = new Solution15_3Sum();
         for (List<Integer> list : solution15.threeSum3_optmize(nums)) {
             System.out.println(list);
         }
