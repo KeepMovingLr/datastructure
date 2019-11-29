@@ -8,6 +8,7 @@ import java.util.Map;
 /**
  * @author enyi.lr
  * @version $Id: Solution82.java, v 0.1 2019‐06‐16 10:15 AM enyi.lr Exp $$
+ * v2
  */
 public class Solution82 {
     public ListNode deleteDuplicates(ListNode head) {
