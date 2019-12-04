@@ -8,11 +8,12 @@ import java.util.List;
 /**
  * @author enyi.lr
  * @version $Id: Solution145.java, v 0.1 2019‐06‐11 12:34 PM enyi.lr Exp $$
+ * v2
  */
-public class Solution145 {
+public class Solution145_BinaryTreePostorderTraversal {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        postorderTraversal(root,result);
+        postorderTraversal(root, result);
         return result;
 
     }
@@ -21,8 +22,8 @@ public class Solution145 {
         if (root == null) {
             return;
         }
-        postorderTraversal(root.left,result);
-        postorderTraversal(root.right,result);
+        postorderTraversal(root.left, result);
+        postorderTraversal(root.right, result);
         result.add(root.val);
     }
 }

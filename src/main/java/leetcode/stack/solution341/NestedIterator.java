@@ -9,6 +9,7 @@ import java.util.Stack;
  * @author enyi.lr
  * @version $Id: NestedIterator.java, v 0.1 2019‐10‐14 7:20 PM enyi.lr Exp $$ 341. Flatten Nested List Iterator use recursive method to
  * solve the problem. Recursive method will use stack.
+ * v2
  */
 public class NestedIterator implements Iterator<Integer> {
     List<NestedInteger> nestedList;

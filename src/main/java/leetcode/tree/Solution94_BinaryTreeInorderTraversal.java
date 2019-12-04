@@ -9,7 +9,7 @@ import java.util.List;
  * @author enyi.lr
  * @version $Id: Solution94.java, v 0.1 2019‐06‐11 12:23 PM enyi.lr Exp $$
  */
-public class Solution94 {
+public class Solution94_BinaryTreeInorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         inorderTraversal(root, result);
