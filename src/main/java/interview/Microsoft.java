@@ -4,6 +4,7 @@ package interview;
  * @author enyi.lr
  * @version $Id: Microsoft.java, v 0.1 2019‐12‐06 12:16 PM enyi.lr Exp $$ 如何判断一个字符串在任意位置(包括最前面和最后面)插入一个字符后能不能构成一个回文串？如何判断一个字符串在任意位置
  * (包括最前面和最后面)插入一个字符后能不能构成一个回文串？
+ * https://www.cnblogs.com/xiaoxi666/p/7443797.html
  */
 public class Microsoft {
 
