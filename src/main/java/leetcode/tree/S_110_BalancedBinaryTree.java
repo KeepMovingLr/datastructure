@@ -5,6 +5,7 @@ import leetcode.assiststructure.TreeNode;
 /**
  * @author enyi.lr
  * @version $Id: Solution110.java, v 0.1 2019‐06‐29 12:40 AM enyi.lr Exp $$
+ * v2
  */
 public class S_110_BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {
