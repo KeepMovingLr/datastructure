@@ -6,7 +6,7 @@ import leetcode.assiststructure.TreeNode;
  * @author enyi.lr
  * @version $Id: Solution108.java, v 0.1 2019‐06‐29 12:05 AM enyi.lr Exp $$
  */
-public class Solution108 {
+public class S_108_ConvertSortedArrayToBinarySearchTree {
     public TreeNode sortedArrayToBST(int[] nums) {
         int length = nums.length;
         if (length == 0) {
@@ -35,7 +35,7 @@ public class Solution108 {
     public static void main(String[] args) {
 
         int[] nums = {-10, -3, 0, 5, 9};
-        Solution108 solution108 = new Solution108();
+        S_108_ConvertSortedArrayToBinarySearchTree solution108 = new S_108_ConvertSortedArrayToBinarySearchTree();
         TreeNode treeNode = solution108.sortedArrayToBST(nums);
         System.out.println();
     }

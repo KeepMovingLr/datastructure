@@ -10,7 +10,7 @@ import java.util.List;
  * @version $Id: Solution145.java, v 0.1 2019‐06‐11 12:34 PM enyi.lr Exp $$
  * v2
  */
-public class Solution145_BinaryTreePostorderTraversal {
+public class S_145_BinaryTreePostorderTraversal {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         postorderTraversal(root, result);

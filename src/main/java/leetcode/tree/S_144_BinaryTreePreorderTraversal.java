@@ -11,7 +11,7 @@ import java.util.Stack;
  * @version $Id: Solution144.java, v 0.1 2019‐06‐11 12:28 PM enyi.lr Exp $$
  * v2
  */
-public class Solution144_BinaryTreePreorderTraversal {
+public class S_144_BinaryTreePreorderTraversal {
 
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();

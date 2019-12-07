@@ -5,10 +5,11 @@ import leetcode.assiststructure.TreeNode;
 /**
  * @author enyi.lr
  * @version $Id: Solution235.java, v 0.1 2019‐06‐11 10:51 AM enyi.lr Exp $$
+ * v2
  */
-public class Solution235 {
+public class S_235_LowestCommonAncestorOfABinarySearchTree {
 
-
+    // 充分利用了二分搜索树的性质
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         TreeNode ancestor = null;
         if (contains(root, p) && contains(root, q)) {

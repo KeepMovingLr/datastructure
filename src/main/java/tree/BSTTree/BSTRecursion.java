@@ -292,7 +292,7 @@ public class BSTRecursion<E extends Comparable> {
             size--;
             return leftNode;
         }
-        currentRoot.right = deleteMinimum(currentRoot.right);
+        currentRoot.right = deleteMaximum(currentRoot.right);
         return currentRoot;
     }
 

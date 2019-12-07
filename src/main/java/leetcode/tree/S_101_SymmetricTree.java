@@ -27,45 +27,4 @@ public class S_101_SymmetricTree {
         return (t1.val == t2.val) && isMirror(t1.left, t2.right) && isMirror(t1.right, t2.left);
     }
 
-    // TODO: 2019/12/6 need check why the anther is wrong.
-    public boolean isSymmetric(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        if (root.left == null && root.right == null) {
-            return true;
-        }
-
-        if (root.left == null || root.right == null) {
-            return false;
-        }
-        TreeNode invertRight = invertTree(root.right);
-        TreeNode left = root.left;
-        return isSame(invertRight, left);
-    }
-
-    public boolean isSame(TreeNode treeNode1, TreeNode treeNode2) {
-        if (treeNode1 == null && treeNode2 == null) {
-            return true;
-        }
-        if (treeNode1 == null || treeNode2 == null) {
-            return false;
-        }
-        if (treeNode1.val == treeNode2.val) {
-            return isSame(treeNode1.left, treeNode2.right);
-        } else {
-            return false;
-        }
-    }
-
-    public TreeNode invertTree(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-        TreeNode tempLeft = invertTree(root.left);
-        TreeNode tempRight = invertTree(root.right);
-        root.left = tempRight;
-        root.right = tempLeft;
-        return root;
-    }
 }

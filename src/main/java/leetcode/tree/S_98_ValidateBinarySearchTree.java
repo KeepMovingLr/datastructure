@@ -8,8 +8,9 @@ import java.util.List;
 /**
  * @author enyi.lr
  * @version $Id: Solution98.java, v 0.1 2019‐06‐11 12:11 PM enyi.lr Exp $$
+ * v2
  */
-public class Solution98 {
+public class S_98_ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         inorderTraversal(root, list);

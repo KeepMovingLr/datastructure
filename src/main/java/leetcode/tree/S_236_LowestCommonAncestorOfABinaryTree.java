@@ -6,7 +6,7 @@ import leetcode.assiststructure.TreeNode;
  * @author enyi.lr
  * @version $Id: Solution103.java, v 0.1 2019‐06‐11 10:19 AM enyi.lr Exp $$
  */
-public class Solution236 {
+public class S_236_LowestCommonAncestorOfABinaryTree {
 
 
 
