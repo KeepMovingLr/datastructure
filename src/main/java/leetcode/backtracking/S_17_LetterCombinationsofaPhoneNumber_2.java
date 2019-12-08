@@ -9,7 +9,7 @@ import java.util.Map;
  * @author enyi.lr
  * @version $Id: S_17_LetterCombinationsofaPhoneNumber.java, v 0.1 2019‐12‐07 4:40 PM enyi.lr Exp $$
  */
-public class S_17_LetterCombinationsofaPhoneNumber {
+public class S_17_LetterCombinationsofaPhoneNumber_2 {
 
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<>();
@@ -41,24 +41,32 @@ public class S_17_LetterCombinationsofaPhoneNumber {
         if (digits.length() == 1) {
             String s = dic.get(digits);
             for (char c : s.toCharArray()) {
-                List<String> one = new ArrayList<>();
-                one.add(String.valueOf(c));
-                result.add(one);
+                List<String> oneAnswer = new ArrayList<>();
+                oneAnswer.add(String.valueOf(c));
+                result.add(oneAnswer);
             }
             return result;
         }
-        // combine
-        List<List<String>> combinations = getCombinations(digits.substring(digits.length() - 1), dic);
-        List<List<String>> combinations1 = getCombinations(digits.substring(0, digits.length() - 1), dic);
-        for (List<String> combination : combinations) {
-            for (List<String> list : combinations1) {
+        String firstDigit = digits.substring(0, 1);
+        String firstLetters = dic.get(firstDigit);
+        char[] letters = firstLetters.toCharArray();
+        List<List<String>> leftLetterResult = getCombinations(digits.substring(1), dic);
+        for (int i = 0; i < letters.length; i++) {
+            String letter = String.valueOf(letters[i]);
+            for (List<String> left : leftLetterResult) {
                 List<String> oneAnswer = new ArrayList<>();
-                oneAnswer.addAll(list);
-                oneAnswer.addAll(combination);
+                oneAnswer.add(letter);
+                oneAnswer.addAll(left);
                 result.add(oneAnswer);
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        S_17_LetterCombinationsofaPhoneNumber_2 letterCombinationsofaPhoneNumber = new S_17_LetterCombinationsofaPhoneNumber_2();
+        List<String> list = letterCombinationsofaPhoneNumber.letterCombinations("23");
+        System.out.println(list);
     }
 
 }
