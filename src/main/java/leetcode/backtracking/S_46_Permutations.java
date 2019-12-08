@@ -1,31 +1,13 @@
-package leetcode.recursionandbacktracking;
+package leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author enyi.lr
- * @version $Id: S_47_PermutationsII.java, v 0.1 2019‐12‐07 7:53 PM enyi.lr Exp $$
+ * @version $Id: S_46_Permutations.java, v 0.1 2019‐12‐07 6:00 PM enyi.lr Exp $$
  */
-public class S_47_PermutationsII {
-
-    public static void main(String[] args) {
-        int[] nums = {1, 1, 3};
-        S_47_PermutationsII s_47_permutationsII = new S_47_PermutationsII();
-        List<List<Integer>> lists = s_47_permutationsII.permuteUnique(nums);
-        System.out.println(lists);
-    }
-
-    public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<List<Integer>> permute = permute(nums);
-        for (List<Integer> list : permute) {
-            if (!res.contains(list)) {
-                res.add(list);
-            }
-        }
-        return res;
-    }
+public class S_46_Permutations {
 
     public List<List<Integer>> permute(int[] nums) {
         List<Integer> needPermute = new ArrayList<>();
@@ -40,7 +22,7 @@ public class S_47_PermutationsII {
         if (nums.size() == 0) {
             return result;
         }
-        if (nums.size() == 1) {
+        if (nums.size() == 1){
             List<Integer> oneResult = new ArrayList<>();
             oneResult.add(nums.get(0));
             result.add(nums);
@@ -49,9 +31,9 @@ public class S_47_PermutationsII {
         for (int i = 0; i < nums.size(); i++) {
             int selected = nums.get(i);
             List<Integer> left = new ArrayList<>();
-            for (int i1 = 0; i1 < nums.size(); i1++) {
-                if (i1 != i){
-                    left.add(nums.get(i1));
+            for (Integer num : nums) {
+                if (num != selected) {
+                    left.add(num);
                 }
             }
             List<List<Integer>> lists = permuteSub(left);
@@ -63,4 +45,13 @@ public class S_47_PermutationsII {
         return result;
 
     }
+
+    public static void main(String[] args) {
+        int[] nums = {1,2,3};
+        S_46_Permutations permutations = new S_46_Permutations();
+        List<List<Integer>> permute = permutations.permute(nums);
+        System.out.println(permute);
+    }
+
+
 }

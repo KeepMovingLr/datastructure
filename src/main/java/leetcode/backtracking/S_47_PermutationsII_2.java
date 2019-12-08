@@ -1,13 +1,31 @@
-package leetcode.recursionandbacktracking;
+package leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author enyi.lr
- * @version $Id: S_46_Permutations.java, v 0.1 2019‐12‐07 6:00 PM enyi.lr Exp $$
+ * @version $Id: S_47_PermutationsII.java, v 0.1 2019‐12‐07 7:53 PM enyi.lr Exp $$
  */
-public class S_46_Permutations_2 {
+public class S_47_PermutationsII_2 {
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 3};
+        S_47_PermutationsII s_47_permutationsII = new S_47_PermutationsII();
+        List<List<Integer>> lists = s_47_permutationsII.permuteUnique(nums);
+        System.out.println(lists);
+    }
+
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<List<Integer>> permute = permute(nums);
+        for (List<Integer> list : permute) {
+            if (!res.contains(list)) {
+                res.add(list);
+            }
+        }
+        return res;
+    }
 
     public List<List<Integer>> permute(int[] nums) {
         boolean[] used = new boolean[nums.length];
@@ -60,12 +78,4 @@ public class S_46_Permutations_2 {
         }
         return count == 1;
     }
-
-    public static void main(String[] args) {
-        int[] nums = {1,2,3};
-        S_46_Permutations permutations = new S_46_Permutations();
-        List<List<Integer>> permute = permutations.permute(nums);
-        System.out.println(permute);
-    }
-
 }
