@@ -4,11 +4,11 @@ package leetcode.graph;
  * @author enyi.lr
  * @version $Id: Solution200_3.java, v 0.1 2019‐06‐27 12:21 AM enyi.lr Exp $$
  */
-public class Solution200_3 {
+public class S_200_Number_of_Islands {
 
     public static void main(String[] args) {
         // [["1","1","1"],["0","1","0"],["1","1","1"]]
-        Solution200_3 solution200_3 = new Solution200_3();
+        S_200_Number_of_Islands solution200_3 = new S_200_Number_of_Islands();
         char[][] grid = new char[3][3];
         int col = grid[0].length;
         for (int i = 0; i < grid.length; i++) {
@@ -21,6 +21,8 @@ public class Solution200_3 {
         int i = solution200_3.numIslands(grid);
         System.out.println(i);
     }
+
+
 
     public int numIslands(char[][] grid) {
         if (grid.length == 0) {

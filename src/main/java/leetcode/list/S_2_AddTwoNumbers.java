@@ -2,17 +2,15 @@ package leetcode.list;
 
 import leetcode.assiststructure.ListNode;
 
-import java.util.Stack;
-
 /**
  * @author enyi.lr
  * @version $Id: Solution2.java, v 0.1 2019‐06‐15 2:32 AM enyi.lr Exp $$
  * v2 2019/11/18
  */
-public class Solution2 {
+public class S_2_AddTwoNumbers {
 
     public static void main(String[] args) {
-        Solution2 solution2 = new Solution2();
+        S_2_AddTwoNumbers solution2 = new S_2_AddTwoNumbers();
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(0);
         ListNode l3 = new ListNode(8);
