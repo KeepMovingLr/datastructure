@@ -6,7 +6,7 @@ import leetcode.assiststructure.ListNode;
  * @author enyi.lr
  * @version $Id: Solution23_1.java, v 0.1 2019‐05‐19 8:35 PM enyi.lr Exp $$
  */
-public class Solution23 {
+public class S_23_MergeKSortedLists {
 
     public ListNode mergeKLists(ListNode[] lists) {
         int length = lists.length;
@@ -17,6 +17,12 @@ public class Solution23 {
         return begin;
     }
 
+    /**
+     * merge two lists and return the head of the new list
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;

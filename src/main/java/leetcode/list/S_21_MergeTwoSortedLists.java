@@ -7,7 +7,7 @@ import leetcode.assiststructure.ListNode;
  * @version $Id: Solution21.java, v 0.1 2019‐05‐19 1:12 AM enyi.lr Exp $$
  * v2
  */
-public class Solution21 {
+public class S_21_MergeTwoSortedLists {
 
     public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
         if (l1 == null) {
@@ -45,6 +45,12 @@ public class Solution21 {
 
     }
 
+    /**
+     * merge two list and return the head of the new list
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
