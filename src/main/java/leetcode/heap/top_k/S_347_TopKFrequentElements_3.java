@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  * @version $Id: Solutio347_3.java, v 0.1 2019‐10‐24 1:08 PM enyi.lr Exp $$
  * v2
  */
-public class Solution347_3 {
+public class S_347_TopKFrequentElements_3 {
 
     class Frequency {
         int element;

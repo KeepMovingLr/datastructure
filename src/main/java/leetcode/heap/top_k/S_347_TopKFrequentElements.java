@@ -12,7 +12,7 @@ import java.util.TreeMap;
  * @version $Id: Solution347.java, v 0.1 2019‐05‐25 3:50 PM enyi.lr Exp $$
  * v2
  */
-public class Solution347_TopKFrequentElements {
+public class S_347_TopKFrequentElements {
 
     private class Frequence implements Comparable<Frequence> {
         int element;
@@ -62,7 +62,7 @@ public class Solution347_TopKFrequentElements {
     }
 
     public static void main(String[] args) {
-        Solution347_TopKFrequentElements solution347 = new Solution347_TopKFrequentElements();
+        S_347_TopKFrequentElements solution347 = new S_347_TopKFrequentElements();
         int[] nums = {1};
         List<Integer> list = solution347.topKFrequent(nums, 1);
         for (Integer integer : list) {

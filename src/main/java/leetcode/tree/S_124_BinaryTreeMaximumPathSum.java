@@ -10,7 +10,7 @@ import java.util.List;
  * @author enyi.lr
  * @version $Id: Solution124.java, v 0.1 2019‐06‐11 9:36 PM enyi.lr Exp $$
  */
-public class Solution124 {
+public class S_124_BinaryTreeMaximumPathSum {
 
     public int maxPathSum(TreeNode root) {
 
@@ -79,7 +79,7 @@ public class Solution124 {
         TreeNode r = new TreeNode(-2);
         root.left = l;
         root.right = r;
-        Solution124 solution124 = new Solution124();
+        S_124_BinaryTreeMaximumPathSum solution124 = new S_124_BinaryTreeMaximumPathSum();
         int i = solution124.maxPathSum(root);
         System.out.println("max:" + i);
 
