@@ -27,7 +27,7 @@ public class S_1099_TwoSumLessThanK {
                 left++;
             }
         }
-        if (result == Integer.MIN_VALUE){
+        if (result == Integer.MIN_VALUE) {
             return -1;
         }
         return result;
