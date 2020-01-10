@@ -317,6 +317,7 @@ public class BSTRecursion<E extends Comparable> {
      * @param value
      * @return the new root after deleting value
      */
+    // Microsoft的一道面试题
     private Node remove(Node currentRoot, E value) {
         if (currentRoot == null) {
             return null;

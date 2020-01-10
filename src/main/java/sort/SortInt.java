@@ -10,6 +10,7 @@ public class SortInt {
 
 
     /***************************************************************/
+    // time complexity O(n^2)
     public void selectionSort(int[] array) {
         // use [0,i] contains the satisfied value
         for (int i = 0; i < array.length; i++) {
@@ -82,6 +83,7 @@ public class SortInt {
 
     // use recursive method to merge sort array[i,j]
     private void __mergeSort(int[] array, int i, int j) {
+        // recursive terminal condition
         if (i >= j) {
             return;
         }
@@ -218,6 +220,7 @@ public class SortInt {
 
     // quick sort from array[left, right]
     private void __quickSort(int[] array, int left, int right) {
+        // recursive terminal condition
         if (left >= right) {
             return;
         }
