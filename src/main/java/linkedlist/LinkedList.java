@@ -101,7 +101,8 @@ public class LinkedList<E> {
 
     public boolean contains(E e) {
         Node current = dummyHead.next;
-        while (current.next != null) {
+        // bug fix
+        while (current != null) {
             if (e.equals(current.e)) {
                 return true;
             }
