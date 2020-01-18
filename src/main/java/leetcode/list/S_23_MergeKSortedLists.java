@@ -8,6 +8,24 @@ import leetcode.assiststructure.ListNode;
  */
 public class S_23_MergeKSortedLists {
 
+    // 分治算法，性能很好
+    public ListNode mergeKLists2(ListNode[] lists) {
+        int length = lists.length;
+        if (length == 0){
+            return null;
+        }
+        for (int interval = 1; interval < length; interval = interval * 2) {
+            for (int i = 0; i < length; i = i + 2 * interval) {
+                if (i + interval < length) {
+                    lists[i] = mergeTwoLists(lists[i], lists[i + interval]);
+                }
+
+            }
+        }
+        return lists[0];
+    }
+
+
     public ListNode mergeKLists(ListNode[] lists) {
         int length = lists.length;
         ListNode begin = null;
