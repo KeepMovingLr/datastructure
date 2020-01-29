@@ -3,6 +3,7 @@ package linkedlist;
 /**
  * @author enyi.lr
  * @version $Id: LinkedList.java, v 0.1 2019‐05‐18 7:46 PM enyi.lr Exp $$
+ * 总结：对于LinkedList的增删改查操作，增删需要记录前一个节点的引用，改查需要记录当前节点的引用。
  */
 public class LinkedList<E> {
 
