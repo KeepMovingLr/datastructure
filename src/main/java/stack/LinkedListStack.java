@@ -5,6 +5,7 @@ import linkedlist.LinkedList;
 /**
  * @author enyi.lr
  * @version $Id: LinkedListStack.java, v 0.1 2019‐05‐18 10:28 PM enyi.lr Exp $$
+ * summary：对于链表，如果增删都在头部，时间复杂度为O(1)，所以利用了这个性质，Stack的链表实现，增删都在头部操作
  */
 public class LinkedListStack<E> implements Stack<E> {
     LinkedList<E> list;
