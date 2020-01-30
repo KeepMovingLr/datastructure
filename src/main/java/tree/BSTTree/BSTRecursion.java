@@ -345,8 +345,8 @@ public class BSTRecursion<E extends Comparable> {
 
             if (currentRoot.left != null && currentRoot.right != null) {
                 Node minimum = minimum(currentRoot.right);
-                Node rootAfterdeletingMin = deleteMinimum(currentRoot.right);
-                minimum.right = rootAfterdeletingMin;
+                Node rootAfterDeletingMin = deleteMinimum(currentRoot.right);
+                minimum.right = rootAfterDeletingMin;
                 minimum.left = currentRoot.left;
                 currentRoot.right = currentRoot.left = null;
                 // 注意次过程不需要维护size   deleteMinimum已经做size了
