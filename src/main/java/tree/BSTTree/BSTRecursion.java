@@ -316,6 +316,7 @@ public class BSTRecursion<E extends Comparable> {
      * @param currentRoot
      * @param value
      * @return the new root after deleting value
+     * note: 关键要点是要找到删除这个节点后，要用什么来替代这个节点，尤其是对于左右两个子树都不为空的情况
      */
     // Microsoft的一道面试题
     private Node remove(Node currentRoot, E value) {
