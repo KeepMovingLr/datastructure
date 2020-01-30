@@ -234,7 +234,7 @@ public class BSTRecursion<E extends Comparable> {
         if (currentRoot.right == null) {
             return currentRoot;
         } else {
-            return minimum(currentRoot.right);
+            return maximum(currentRoot.right);
         }
     }
 
