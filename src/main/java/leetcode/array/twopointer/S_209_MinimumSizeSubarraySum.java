@@ -5,11 +5,11 @@ package leetcode.array.twopointer;
  * @version $Id: Solution209.java, v 0.1 2019‐05‐22 10:28 PM enyi.lr Exp $$
  * v2
  */
-public class Solution209 {
+public class S_209_MinimumSizeSubarraySum {
 
     public static void main(String[] args) {
         int[] nums = {2, 3, 1, 2, 4, 3};
-        Solution209 solution209 = new Solution209();
+        S_209_MinimumSizeSubarraySum solution209 = new S_209_MinimumSizeSubarraySum();
         int i = solution209.minSubArrayLen(7, nums);
         System.out.println(i);
         int[] nums2 = {5, 1, 3, 5, 10, 7, 4, 9, 2, 8};

@@ -8,10 +8,10 @@ import java.util.Map;
  * @version $Id: Solution3.java, v 0.1 2019‐05‐23 1:43 AM enyi.lr Exp $$
  * v2
  */
-public class Solution3 {
+public class S_3_LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
-        Solution3 solution3 = new Solution3();
+        S_3_LongestSubstringWithoutRepeatingCharacters solution3 = new S_3_LongestSubstringWithoutRepeatingCharacters();
         System.out.println(solution3.lengthOfLongestSubstring4("abcabcbb"));
 
     }
