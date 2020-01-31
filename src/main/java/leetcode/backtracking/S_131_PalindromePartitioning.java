@@ -26,7 +26,7 @@ public class S_131_PalindromePartitioning {
 
     public List<List<String>> partitionHelper(String s) {
         List<List<String>> result = new ArrayList<>();
-        if (null == result) {
+        if (null == s) {
             return result;
         }
         // the recursive termination
