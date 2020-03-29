@@ -10,7 +10,7 @@ import java.util.TreeMap;
  * @author enyi.lr
  * @version $Id: Solution347.java, v 0.1 2019‐05‐25 3:50 PM enyi.lr Exp $$
  */
-public class Solution347_1 {
+public class S_347_TopKFrequentElements_1 {
 
     private class Frequence implements Comparable<Frequence> {
         int element;

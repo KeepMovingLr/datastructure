@@ -11,7 +11,7 @@ import java.util.Set;
  * @author enyi.lr
  * @version $Id: Solution692.java, v 0.1 2019‐05‐26 5:15 PM enyi.lr Exp $$
  */
-public class Solution692 {
+public class S_692_TopKFrequentWords_1 {
 
     private class WordFrequent implements Comparable<WordFrequent> {
         String  word;

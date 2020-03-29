@@ -7,7 +7,7 @@ import leetcode.assiststructure.ListNode;
  * @version $Id: Solution206.java, v 0.1 2019‐05‐19 12:31 AM enyi.lr Exp $$
  * v2
  */
-public class Solution206 {
+public class S_206_ReverseLinkedList {
 
     public ListNode reverseList5(ListNode head) {
         if (head == null){

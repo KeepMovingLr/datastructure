@@ -7,7 +7,44 @@ import leetcode.assiststructure.ListNode;
  * @version $Id: Solution92.java, v 0.1 2019‐06‐14 11:57 PM enyi.lr Exp $$
  * v2
  */
-public class Solution92 {
+public class S_92_ReverseLinkedListII {
+
+    // use dummy head
+    public ListNode reverseBetween3(ListNode head, int m, int n) {
+        if (m == n) {
+            return head;
+        }
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        // need variable: mNode  nNode mNodePre nNodeNext current pre next
+        ListNode mNode = head;
+        ListNode nNode = head;
+        ListNode mNodePre = dummyHead;
+        ListNode nNodeNext = null;
+        for (int i = 1; i < m; i++) {
+            mNode = mNode.next;
+            mNodePre = mNodePre.next;
+        }
+        for (int i = 1; i < n; i++) {
+            nNode = nNode.next;
+        }
+        nNodeNext = nNode.next; // nNodeNext may be null
+
+        ListNode cur = mNode;
+        ListNode pre = null;
+        ListNode next = mNode.next;
+        while (cur != nNodeNext){
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        mNode.next = nNodeNext;
+        mNodePre.next = nNode;
+        return dummyHead.next;
+    }
 
     // need to define variables before and know each meaning
     public ListNode reverseBetween2(ListNode head, int m, int n) {

@@ -1,7 +1,9 @@
 package leetcode.attempted;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -11,6 +13,9 @@ import java.util.Stack;
 public class Solution42 {
     public int trap(int[] height) {
         int water = 0;
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(1,1);
+        map.get(1);
 
         return water;
     }

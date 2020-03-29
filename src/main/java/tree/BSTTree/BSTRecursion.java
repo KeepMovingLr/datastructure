@@ -234,7 +234,7 @@ public class BSTRecursion<E extends Comparable> {
         if (currentRoot.right == null) {
             return currentRoot;
         } else {
-            return minimum(currentRoot.right);
+            return maximum(currentRoot.right);
         }
     }
 
@@ -316,7 +316,9 @@ public class BSTRecursion<E extends Comparable> {
      * @param currentRoot
      * @param value
      * @return the new root after deleting value
+     * note: 关键要点是要找到删除这个节点后，要用什么来替代这个节点，尤其是对于左右两个子树都不为空的情况
      */
+    // Microsoft的一道面试题
     private Node remove(Node currentRoot, E value) {
         if (currentRoot == null) {
             return null;
@@ -344,8 +346,8 @@ public class BSTRecursion<E extends Comparable> {
 
             if (currentRoot.left != null && currentRoot.right != null) {
                 Node minimum = minimum(currentRoot.right);
-                Node rootAfterdeletingMin = deleteMinimum(currentRoot.right);
-                minimum.right = rootAfterdeletingMin;
+                Node rootAfterDeletingMin = deleteMinimum(currentRoot.right);
+                minimum.right = rootAfterDeletingMin;
                 minimum.left = currentRoot.left;
                 currentRoot.right = currentRoot.left = null;
                 // 注意次过程不需要维护size   deleteMinimum已经做size了

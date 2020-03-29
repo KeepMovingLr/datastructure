@@ -11,8 +11,7 @@ import java.util.Stack;
 
 /**
  * @author enyi.lr
- * @version $Id: SparseGraph.java, v 0.1 2019‐06‐13 12:19 AM enyi.lr Exp $$
- * 稀疏图：邻接矩阵
+ * @version $Id: SparseGraph.java, v 0.1 2019‐06‐13 12:19 AM enyi.lr Exp $$ 稀疏图：邻接矩阵
  */
 public class SparseGraph {
 
@@ -59,6 +58,38 @@ public class SparseGraph {
         }
         m++;
 
+    }
+
+    public void removeEdge(int v, int w) {
+        if (v < 0 || v >= n) {
+            return;
+        }
+        if (w < 0 || w >= n) {
+            return;
+        }
+        int index = -1;
+        ArrayList<Integer> arrayList = g.get(v);
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (arrayList.get(i) == w){
+                index = i;
+            }
+        }
+        if (index != -1){
+            g.get(v).remove(index);
+        }
+        if (v != w && !directed) {
+            int index2 = -1;
+            ArrayList<Integer> arrayList2 = g.get(w);
+            for (int i = 0; i < arrayList2.size(); i++) {
+                if (arrayList2.get(i) == v){
+                    index2 = i;
+                }
+            }
+            if (index2 != -1){
+                g.get(w).remove(index2);
+            }
+        }
+        m--;
     }
 
     public boolean hasEdge(int v, int w) {
@@ -153,7 +184,8 @@ public class SparseGraph {
         return result;
     }
 
-    /**********detect loop*****important and hard to understand******************************************************************************************************/
+    /**********detect loop*****important and hard to
+     * understand******************************************************************************************************/
 
     /**
      * @param vertex
