@@ -11,7 +11,7 @@ import java.util.Set;
  * Given a sorted linked list, delete all duplicates such that each element appear only once.
  * v2
  */
-public class Solution83 {
+public class S_83_RemoveDuplicatesFromSortedList {
 
     // There are many ways to solve the problem. one is use set to save the previous element. another is use the given condition: a
     // sorted linked list
