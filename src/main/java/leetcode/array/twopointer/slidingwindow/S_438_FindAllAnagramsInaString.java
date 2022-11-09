@@ -11,10 +11,10 @@ import java.util.Set;
  * @version $Id: Solution483.java, v 0.1 2019‐05‐23 1:49 AM enyi.lr Exp $$
  * v2 2019‐10‐30
  */
-public class Solution438 {
+public class S_438_FindAllAnagramsInaString {
 
     public static void main(String[] args) {
-        Solution438 solution438 = new Solution438();
+        S_438_FindAllAnagramsInaString solution438 = new S_438_FindAllAnagramsInaString();
         List<Integer> anagrams1 = solution438.findAnagrams3("cbaebabacd", "abc");
         List<Integer> anagrams2 = solution438.findAnagrams3("baa", "aa");
         //System.out.println(anagrams1.toString());

@@ -9,10 +9,10 @@ import java.util.Map;
  * @version $Id: Solution76.java, v 0.1 2019‐05‐23 1:51 AM enyi.lr Exp $$
  * v2 2019‐10‐31
  */
-public class Solution76 {
+public class S_76_MinimumWindowSubstring {
 
     public static void main(String[] args) {
-        Solution76 solution76 = new Solution76();
+        S_76_MinimumWindowSubstring solution76 = new S_76_MinimumWindowSubstring();
         String s = solution76.minWindow2("ADOBECODEBANC", "ABC");
         System.out.println(s);
 
