@@ -34,7 +34,7 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * add an Element E to the Binary Search Tree which root is currentRoot with the recursion algorithm
+     * add an Element E into the Binary Search Tree which root is currentRoot with the recursion algorithm
      * @param currentRoot 在currentRoot为根节点的树中插入元素
      * @param e 待插入元素
      */
@@ -47,6 +47,7 @@ public class BSTRecursion<E extends Comparable> {
         }
         if (e.compareTo(currentRoot.value) > 0 && currentRoot.right == null) {
             currentRoot.right = newNode;
+            size++;
             return;
         }
 
