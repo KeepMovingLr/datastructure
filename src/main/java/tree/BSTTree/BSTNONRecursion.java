@@ -34,14 +34,14 @@ public class BSTNONRecursion<E extends Comparable> {
         ArrayDeque<Node> queue = new ArrayDeque();
         queue.add(root);
         while (!queue.isEmpty()) {
-            Node first = queue.getFirst();
+            Node current = queue.getFirst();
             // 以print代替操作
-            System.out.println(first.value);
-            if (first.left != null) {
-                queue.add(first.left);
+            System.out.println(current.value);
+            if (current.left != null) {
+                queue.add(current.left);
             }
-            if (first.right != null) {
-                queue.add(first.right);
+            if (current.right != null) {
+                queue.add(current.right);
             }
         }
     }
