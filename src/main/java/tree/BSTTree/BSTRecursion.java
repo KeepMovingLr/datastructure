@@ -62,7 +62,8 @@ public class BSTRecursion<E extends Comparable> {
     /*************************************************************************************************/
 
     /**
-     * add an Element E to the tree which root is currentRoot and return the new root of the tree after adding a new element
+     * A better solution
+     * add an Element E into the binary search tree which root is currentRoot and return the new root of the tree after adding a new element
      *
      * @param currentRoot the root of the tree
      * @param e           the element to be added
@@ -74,17 +75,11 @@ public class BSTRecursion<E extends Comparable> {
             return new Node(e);
         }
         if (e.compareTo(currentRoot.value) < 0) {
-            Node node = add_2(currentRoot.left, e);
-            currentRoot.left = node;
-            return currentRoot;
-        }
-        if (e.compareTo(currentRoot.value) > 0) {
-            Node node = add_2(currentRoot.right, e);
-            currentRoot.right = node;
-            return currentRoot;
+            currentRoot.left = add_2(currentRoot.left, e);
+        } else if (e.compareTo(currentRoot.value) > 0) {
+            currentRoot.right = add_2(currentRoot.right, e);
         }
         return currentRoot;
-
     }
 
     public void add_2(E e) {
