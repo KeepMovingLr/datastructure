@@ -53,11 +53,8 @@ public class BSTRecursion<E extends Comparable> {
 
         if (e.compareTo(currentRoot.value) < 0) {
             add_1(currentRoot.left, e);
-            return;
-        }
-        if (e.compareTo(currentRoot.value) > 0) {
+        } else { // e.compareTo(currentRoot.value) > 0
             add_1(currentRoot.right, e);
-            return;
         }
 
     }
