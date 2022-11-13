@@ -91,7 +91,7 @@ public class BSTNONRecursion<E extends Comparable> {
      * @param root
      */
     private void preOrderTraversal(Node root) {
-        Stack<Node> stack = new Stack<Node>();
+        Stack<Node> stack = new Stack<>();
         stack.add(root);
         while (!stack.isEmpty()) {
             Node pop = stack.pop();
