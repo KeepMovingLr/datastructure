@@ -1,3 +1,4 @@
+/*
 package leetcode.graph;
 
 import javafx.util.Pair;
@@ -8,10 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+*/
 /**
  * @author enyi.lr
  * @version $Id: S_127_WordLadder.java, v 0.1 2019‐12‐18 1:06 PM enyi.lr Exp $$
- */
+ *//*
+
 public class S_127_WordLadder {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -85,4 +88,4 @@ public class S_127_WordLadder {
         System.out.println("length:" + length);
     }
 
-}
+}*/

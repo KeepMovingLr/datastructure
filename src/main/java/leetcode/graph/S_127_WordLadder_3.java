@@ -1,3 +1,4 @@
+/*
 package leetcode.graph;
 
 import javafx.util.Pair;
@@ -11,10 +12,12 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
+*/
 /**
  * @author enyi.lr
  * @version $Id: S_127_WordLadder.java, v 0.1 2019‐12‐18 1:06 PM enyi.lr Exp $$
- */
+ *//*
+
 public class S_127_WordLadder_3 {
 
     // the method is right and time is ok
@@ -96,4 +99,4 @@ public class S_127_WordLadder_3 {
         System.out.println("length:" + length);
     }
 
-}
+}*/

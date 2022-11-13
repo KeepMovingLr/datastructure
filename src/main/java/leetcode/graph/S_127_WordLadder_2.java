@@ -1,3 +1,4 @@
+/*
 package leetcode.graph;
 
 import javafx.util.Pair;
@@ -9,10 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+*/
 /**
  * @author enyi.lr
  * @version $Id: S_127_WordLadder.java, v 0.1 2019‐12‐18 1:06 PM enyi.lr Exp $$
- */
+ *//*
+
 public class S_127_WordLadder_2 {
 
     // the method is right, but time limit exceed
@@ -115,4 +118,4 @@ public class S_127_WordLadder_2 {
         System.out.println("length:" + length);
     }
 
-}
+}*/

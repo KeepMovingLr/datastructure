@@ -132,6 +132,18 @@ public class LinkedList<E> {
         return removeByIndex(size - 1);
     }
 
+    public void reverseList(){
+        Node pre = null;
+        Node cur = dummyHead.next;
+        while (cur != null){
+            Node next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        dummyHead.next = pre;
+    }
+
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
@@ -152,13 +164,7 @@ public class LinkedList<E> {
             linkedList.addFirst(i);
             System.out.println(linkedList);
         }
-        linkedList.addToIndex(2, 666);
-        System.out.println(linkedList);
-        linkedList.set(2, 555);
-        System.out.println(linkedList);
-        linkedList.removeFirst();
-        System.out.println(linkedList);
-        linkedList.removeLast();
+        linkedList.reverseList();
         System.out.println(linkedList);
     }
 
