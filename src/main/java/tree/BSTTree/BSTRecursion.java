@@ -308,11 +308,11 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * delete the node which value is value from root which root is currentRoot
+     * delete the node whose value is value from root whose root is currentRoot
      *
      * @param currentRoot
      * @param value
-     * @return the new root after deleting value
+     * @return the new root after deleting the value
      * note: 关键要点是要找到删除这个节点后，要用什么来替代这个节点，尤其是对于左右两个子树都不为空的情况
      */
     // Microsoft的一道面试题
@@ -322,14 +322,12 @@ public class BSTRecursion<E extends Comparable> {
         }
         if (value.compareTo(currentRoot.value) < 0) {
             currentRoot.left = remove(currentRoot.left, value);
-
         } else if (value.compareTo(currentRoot.value) > 0) {
             currentRoot.right = remove(currentRoot.right, value);
         } else { // value.compareTo(currentRoot.value) == 0
             // delete the node
             if (currentRoot.left == null) {
                 Node right = currentRoot.right;
-                // 这句话可以没有吧？
                 currentRoot.right = null;
                 size--;
                 return right;
