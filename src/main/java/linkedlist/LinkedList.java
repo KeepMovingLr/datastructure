@@ -8,7 +8,7 @@ package linkedlist;
 public class LinkedList<E> {
 
     private class Node {
-        public E    e;
+        public E e;
         public Node next;
 
         public Node(E e, Node next) {
@@ -34,7 +34,7 @@ public class LinkedList<E> {
 
     // dummy head
     private Node dummyHead;
-    private int  size;
+    private int size;
 
     public LinkedList() {
         dummyHead = new Node(null, null);
@@ -42,7 +42,6 @@ public class LinkedList<E> {
     }
 
     public void addToIndex(int index, E e) {
-
         Node prev = dummyHead;
         for (int i = 0; i < index; i++) {
             prev = prev.next;
@@ -51,7 +50,6 @@ public class LinkedList<E> {
         node.next = prev.next;
         prev.next = node;   // 3 -> 1 prev.next = new Node(e,prev.next);
         size++;
-
     }
 
     public void addLast(E e) {
@@ -132,10 +130,10 @@ public class LinkedList<E> {
         return removeByIndex(size - 1);
     }
 
-    public void reverseList(){
+    public void reverseList() {
         Node pre = null;
         Node cur = dummyHead.next;
-        while (cur != null){
+        while (cur != null) {
             Node next = cur.next;
             cur.next = pre;
             pre = cur;
