@@ -1,7 +1,7 @@
 package tree.BSTTree;
 
 /**
- * @author enyi.lr 递归实现
+ * @author enyi.lr Recursion implement
  * @version $Id: BSTRecursion.java, v 0.1 2019‐05‐12 11:01 PM enyi.lr Exp $$
  */
 public class BSTRecursion<E extends Comparable> {
@@ -11,14 +11,13 @@ public class BSTRecursion<E extends Comparable> {
     private int size;
 
     private class Node {
-        public E    value;
+        public E value;
         public Node left, right;
 
         public Node(E value) {
             this.value = value;
             left = null;
             right = null;
-
         }
     }
 
@@ -34,9 +33,10 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * add an Element E into the Binary Search Tree which root is currentRoot with the recursion algorithm
-     * @param currentRoot 在currentRoot为根节点的树中插入元素
-     * @param e 待插入元素
+     * add an Element E into the Binary Search Tree whose root is currentRoot with the recursion algorithm
+     *
+     * @param currentRoot Add an element E into the tree whose root is currentRoot
+     * @param e           The element that needs to be inserted
      */
     private void add_1(Node currentRoot, E e) {
         Node newNode = new Node(e);
@@ -63,11 +63,11 @@ public class BSTRecursion<E extends Comparable> {
 
     /**
      * A better solution
-     * add an Element E into the binary search tree which root is currentRoot and return the new root of the tree after adding a new element
+     * add an Element E into the binary search tree whose root is currentRoot and return the new root of the tree after adding a new element
      *
      * @param currentRoot the root of the tree
      * @param e           the element to be added
-     * @return the new root of the tree after adding a new element
+     * @return the root of the new tree after adding the element
      */
     private Node add_2(Node currentRoot, E e) {
         if (currentRoot == null) {
@@ -88,8 +88,13 @@ public class BSTRecursion<E extends Comparable> {
 
     /*************************************************************************************************/
 
-    // 看二分搜索树中是否包含元素e
-    public boolean contains(E e){
+    /**
+     * Check if a BST contains Element e
+     *
+     * @param e
+     * @return
+     */
+    public boolean contains(E e) {
         return contains(root, e);
     }
 
@@ -169,7 +174,7 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * postOrder traversal of a tree which root is root
+     * postOrder traversal of a tree whose root is root
      *
      * @param root the root of the tree
      */
@@ -193,7 +198,7 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * get the minimum node of the tree which root is currentRoot
+     * get the minimum node of the tree whose root is currentRoot
      *
      * @param currentRoot root
      * @return the minimum node
@@ -219,7 +224,7 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * get the maximum node of the tree which root is currentRoot
+     * get the maximum node of the tree whose root is currentRoot
      *
      * @param currentRoot root
      * @return the maximum node
@@ -247,10 +252,10 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * delete minimum node of the tree which root is currentRoot
+     * delete minimum node of the tree whose root is currentRoot
      *
      * @param currentRoot root
-     * @return new root of the tree after deleting
+     * @return the root of the tree after deleting
      */
     private Node deleteMinimum(Node currentRoot) {
         if (currentRoot.left == null) {
@@ -261,7 +266,6 @@ public class BSTRecursion<E extends Comparable> {
         }
         currentRoot.left = deleteMinimum(currentRoot.left);
         return currentRoot;
-
     }
 
     /*************************************************************************************************/
@@ -277,10 +281,10 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /**
-     * delete maximum node of the tree which root is currentRoot
+     * delete maximum node of the tree whose root is currentRoot
      *
      * @param currentRoot root
-     * @return new root of the tree after deleting
+     * @return the root of the tree after deleting
      */
     private Node deleteMaximum(Node currentRoot) {
         if (currentRoot.right == null) {
@@ -296,7 +300,7 @@ public class BSTRecursion<E extends Comparable> {
     /*************************************************************************************************/
 
     /**
-     * delete the node which value is value
+     * delete the node whose value is value
      *
      * @param value
      */
@@ -315,7 +319,7 @@ public class BSTRecursion<E extends Comparable> {
      * @return the new root after deleting the value
      * note: 关键要点是要找到删除这个节点后，要用什么来替代这个节点，尤其是对于左右两个子树都不为空的情况
      */
-    // Microsoft的一道面试题
+    // a Microsoft interview question
     private Node remove(Node currentRoot, E value) {
         if (currentRoot == null) {
             return null;
@@ -352,8 +356,6 @@ public class BSTRecursion<E extends Comparable> {
     }
 
     /*************************************************************************************************/
-
-
 
     /*************************************************************************************************/
 
