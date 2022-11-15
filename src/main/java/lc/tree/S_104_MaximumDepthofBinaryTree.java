@@ -28,10 +28,7 @@ public class S_104_MaximumDepthofBinaryTree {
         if (root == null) {
             return 0;
         }
-        int leftDepth = maxDepth(root.left);
-        int rightDepth = maxDepth(root.right);
-        int max = getMax(leftDepth, rightDepth);
-        return max + 1;
+        return Math.max(maxDepth(root.left) , maxDepth(root.right)) + 1;
     }
 
     private int getMax(int leftDepth, int rightDepth) {
