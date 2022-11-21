@@ -7,6 +7,10 @@ import java.util.Random;
 /**
  * @author enyi.lr
  * @version $Id: MaxHeap.java, v 0.1 2019‐05‐25 1:59 PM enyi.lr Exp $$
+ * When the store element from index 0
+ * parent(i) = (i - 1) / 2;
+ * left child(i) = 2*i + 1;
+ * right child(i) = 2*i + 2;
  */
 public class MaxHeap<E extends Comparable<E>> {
 
