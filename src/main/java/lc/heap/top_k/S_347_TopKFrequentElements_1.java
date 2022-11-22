@@ -12,20 +12,20 @@ import java.util.TreeMap;
  */
 public class S_347_TopKFrequentElements_1 {
 
-    private class Frequence implements Comparable<Frequence> {
+    private class Frequency implements Comparable<Frequency> {
         int element;
-        int freqence;
+        int freqency;
 
-        public Frequence(int element, int freqence) {
+        public Frequency(int element, int freqence) {
             this.element = element;
-            this.freqence = freqence;
+            this.freqency = freqence;
         }
 
         @Override
-        public int compareTo(Frequence another) {
-            if (this.freqence > another.freqence) {
+        public int compareTo(Frequency another) {
+            if (this.freqency > another.freqency) {
                 return 1;
-            } else if (this.freqence == another.freqence) {
+            } else if (this.freqency == another.freqency) {
                 return 0;
             } else {
                 return -1;
@@ -34,22 +34,20 @@ public class S_347_TopKFrequentElements_1 {
     }
 
     public List<Integer> topKFrequent(int[] nums, int k) {
-
         Map<Integer, Integer> frequentMap = new TreeMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (frequentMap.containsKey(nums[i])) {
-                Integer frequence = frequentMap.get(nums[i]);
-                frequence++;
-                frequentMap.put(nums[i], frequence);
+                Integer frequency = frequentMap.get(nums[i]);
+                frequency++;
+                frequentMap.put(nums[i], frequency);
             } else {
                 frequentMap.put(nums[i], 1);
             }
-
         }
 
-        PriorityQueue<Frequence> priorityQueue = new PriorityQueue<>();
-        for (Integer integer : frequentMap.keySet()) {
-            priorityQueue.add(new Frequence(integer, frequentMap.get(integer)));
+        PriorityQueue<Frequency> priorityQueue = new PriorityQueue<>();
+        for (Integer key : frequentMap.keySet()) {
+            priorityQueue.add(new Frequency(key, frequentMap.get(key)));
         }
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < k; i++) {
