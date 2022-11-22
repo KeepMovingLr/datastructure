@@ -13,20 +13,20 @@ import java.util.TreeMap;
  */
 public class S_347_TopKFrequentElements_2 {
 
-    private class Frequence implements Comparable<Frequence> {
+    private class Frequency implements Comparable<Frequency> {
         int element;
-        int freqence;
+        int frequency;
 
-        public Frequence(int element, int freqence) {
+        public Frequency(int element, int freqence) {
             this.element = element;
-            this.freqence = freqence;
+            this.frequency = freqence;
         }
 
         @Override
-        public int compareTo(Frequence another) {
-            if (this.freqence > another.freqence) {
+        public int compareTo(Frequency another) {
+            if (this.frequency > another.frequency) {
                 return 1;
-            } else if (this.freqence == another.freqence) {
+            } else if (this.frequency == another.frequency) {
                 return 0;
             } else {
                 return -1;
@@ -39,23 +39,23 @@ public class S_347_TopKFrequentElements_2 {
         Map<Integer, Integer> frequentMap = new TreeMap<>();
         for (int num : nums) {
             if (frequentMap.containsKey(num)) {
-                Integer frequence = frequentMap.get(num);
-                frequence++;
-                frequentMap.put(num, frequence);
+                Integer frequency = frequentMap.get(num);
+                frequency++;
+                frequentMap.put(num, frequency);
             } else {
                 frequentMap.put(num, 1);
             }
         }
-        PriorityQueue<Frequence> priorityQueue = new PriorityQueue<>();
+        PriorityQueue<Frequency> priorityQueue = new PriorityQueue<>();
         Set<Integer> keySet = frequentMap.keySet();
         for (Integer key : keySet) {
             if (priorityQueue.size() < k) {
-                priorityQueue.add(new Frequence(key, frequentMap.get(key)));
+                priorityQueue.add(new Frequency(key, frequentMap.get(key)));
             } else {
-                Frequence smallest = priorityQueue.peek();
-                if (frequentMap.get(key) > smallest.freqence) {
+                Frequency smallest = priorityQueue.peek();
+                if (frequentMap.get(key) > smallest.frequency) {
                     priorityQueue.remove();
-                    priorityQueue.add(new Frequence(key, frequentMap.get(key)));
+                    priorityQueue.add(new Frequency(key, frequentMap.get(key)));
                 }
             }
         }
