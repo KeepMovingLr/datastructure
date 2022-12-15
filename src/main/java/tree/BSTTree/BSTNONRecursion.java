@@ -34,7 +34,7 @@ public class BSTNONRecursion<E extends Comparable> {
         ArrayDeque<Node> queue = new ArrayDeque();
         queue.add(root);
         while (!queue.isEmpty()) {
-            Node current = queue.getFirst();
+            Node current = queue.pollFirst();
             // 以print代替操作
             System.out.println(current.value);
             if (current.left != null) {
