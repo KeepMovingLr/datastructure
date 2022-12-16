@@ -1,2 +1,2 @@
 # datastructure
-Data structure that implemented by myself
+Data structure that implemented by myself.
