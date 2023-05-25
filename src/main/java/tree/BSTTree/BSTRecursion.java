@@ -90,7 +90,7 @@ public class BSTRecursion<E extends Comparable> {
 
     /**
      * Check if a BST contains Element e
-     *
+     * recursive method
      * @param e
      * @return
      */
