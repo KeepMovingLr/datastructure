@@ -12,11 +12,11 @@ import java.util.List;
  */
 public class DenseGraph {
     /**
-     * the count of the node
+     * the count of all nodes
      */
     private int     n;
     /**
-     * the count of the edge
+     * the count of all edges
      */
     private int     m;
     /**

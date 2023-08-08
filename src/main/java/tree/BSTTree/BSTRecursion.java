@@ -164,7 +164,7 @@ public class BSTRecursion<E extends Comparable> {
         inOrderTraversal(root.left);
         // 以输出代替访问。其他题目中，经常是要先存储到一个集合之类的 set.add(root.value);
         visitNode(root);
-        preOrderTraversal(root.right);
+        inOrderTraversal(root.right);
     }
 
     /*************************************************************************************************/
