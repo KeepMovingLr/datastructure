@@ -11,7 +11,7 @@ import java.util.Stack;
 
 /**
  * @author enyi.lr
- * @version $Id: SparseGraph.java, v 0.1 2019‐06‐13 12:19 AM enyi.lr Exp $$ 稀疏图：邻接矩阵
+ * @version $Id: SparseGraph.java, v 0.1 2019‐06‐13 12:19 AM enyi.lr Exp $$ 稀疏图：Adjacency list
  */
 public class SparseGraph {
 

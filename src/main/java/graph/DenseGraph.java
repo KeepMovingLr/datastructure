@@ -20,7 +20,7 @@ public class DenseGraph {
      */
     private int     m;
     /**
-     * if it is a directed graph
+     * if it is a directed graph.
      */
     private boolean directed;
 

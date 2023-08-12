@@ -1,0 +1,26 @@
+@startgantt
+Project starts 2023-06-10
+[Prepare for marriage] lasts 65 days
+[Prepare for Aus Visa] lasts 10 days
+
+[Submit Visa Application] lasts 3 days
+
+[Waiting for visa result] lasts 30 days
+
+[Submit Visa Application] starts at [Prepare for Aus Visa]'s end
+[Waiting for visa result] starts at [Submit Visa Application]'s end
+
+[Notice of Intended Marriage] starts 2023-06-12
+[Notice of Intended Marriage] ends 2023-06-17
+
+[Submit Notice] lasts 2 days
+[Submit Notice] starts at [Notice of Intended Marriage]'s end
+
+[Visa approved] lasts 3 days
+[Visa approved] starts at [Waiting for visa result]'s end
+
+[Find marriage officer] lasts 10 days
+
+[Find marriage officer] starts at [Visa approved]'s end
+
+@endgantt
