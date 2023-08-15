@@ -74,7 +74,7 @@ public class SparseGraph {
                 index = i;
             }
         }
-        if (index != -1){
+        if (index != -1) {
             g.get(v).remove(index);
         }
         if (v != w && !directed) {
