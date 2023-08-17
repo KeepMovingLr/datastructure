@@ -3,6 +3,7 @@ package queue;
 /**
  * @author enyi.lr
  * @version $Id: LoopQueue.java, v 0.1 2019‐05‐18 4:30 PM enyi.lr Exp $$
+ * no need to move data in queue when we implement queue by using an array
  */
 public class LoopQueue<E> implements Queue<E> {
 
