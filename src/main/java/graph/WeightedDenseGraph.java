@@ -2,7 +2,7 @@ package graph;
 
 public class WeightedDenseGraph {
 
-    class Edge {
+    static class Edge {
         // vertex
         int a;
         int b;
@@ -58,4 +58,6 @@ public class WeightedDenseGraph {
     public boolean hasEdge(int v, int w) {
         return g[v][w] != null;
     }
+
+
 }
