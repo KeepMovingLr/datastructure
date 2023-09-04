@@ -62,6 +62,7 @@ public class UnionFind6 implements UF {
         if (p < 0 || p >= parent.length) {
             throw new IllegalArgumentException("p is out of bound.");
         }
+        // note: use if here is enough
         if (p != parent[p]) {
             parent[p] = find(parent[p]);
         }
