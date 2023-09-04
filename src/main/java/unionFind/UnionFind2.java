@@ -3,6 +3,7 @@ package unionFind;
 /**
  * @author enyi.lr
  * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$
+ * Quick Union implement, noted, there is no O(1) operation in Quick Union implement
  */
 public class UnionFind2 implements UF {
 
@@ -40,6 +41,7 @@ public class UnionFind2 implements UF {
     }
 
     // find the union number of the element which index is p
+    // the worst time complexity is O(n). time complexity is O(h), h is the height of the tree
     private int find(int p) {
         if (p < 0 || p >= parent.length) {
             throw new IllegalArgumentException("p is out of bound.");
