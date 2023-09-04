@@ -3,6 +3,9 @@ package unionFind;
 /**
  * @author enyi.lr
  * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$
+ * Quick find
+ * find - O(1)
+ * union - O(n)
  */
 public class UnionFind1 implements UF {
     // 我们的第一版Union-Find本质就是一个数组
