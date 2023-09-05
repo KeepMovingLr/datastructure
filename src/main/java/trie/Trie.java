@@ -5,6 +5,7 @@ import java.util.TreeMap;
 /**
  * @author enyi.lr
  * @version $Id: Trie.java, v 0.1 2019‐06‐01 7:18 PM enyi.lr Exp $$
+ *  pronouncing it /ˈtriː/ (as "tree"), after the middle syllable of retrieval. However, other authors pronounce it /ˈtraɪ/ (as "try")
  */
 public class Trie {
     private class Node {
