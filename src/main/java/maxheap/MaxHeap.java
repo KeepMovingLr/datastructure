@@ -16,6 +16,11 @@ import java.util.Random;
  *             1        2
  *          3   4      5     6
  *        7 8 9 10  11 12  13 14
+ *
+ * definiation: In computer science, a heap is a specialized tree-based data structure that satisfies the heap property:
+ * In a max heap, for any given node C, if P is a parent node of C, then the key (the value) of P is greater than or equal to the key of C.
+ * In a min heap, the key of P is less than or equal to the key of C.[1] The node at the "top" of the heap (with no parents) is called the root node.
+ *
  */
 public class MaxHeap<E extends Comparable<E>> {
 
