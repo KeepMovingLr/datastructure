@@ -14,11 +14,11 @@ public class DenseGraph {
     /**
      * the count of all nodes
      */
-    private int     n;
+    private int v;
     /**
      * the count of all edges
      */
-    private int     m;
+    private int e;
     /**
      * if it is a directed graph.
      */
@@ -29,11 +29,11 @@ public class DenseGraph {
      */
     private int[][] g;
 
-    public DenseGraph(int n, boolean directed) {
-        this.n = n;
-        m = 0;
+    public DenseGraph(int v, boolean directed) {
+        this.v = v;
+        e = 0;
         this.directed = directed;
-        g = new int[n][n];
+        g = new int[v][v];
 
     }
 
@@ -59,18 +59,18 @@ public class DenseGraph {
     }
 
     public int getNodeCount() {
-        return n;
+        return v;
     }
 
     public int getEdgeCount() {
-        return m;
+        return e;
     }
 
     public void addEdge(int v, int w) {
-        if (v < 0 || v >= n) {
+        if (v < 0 || v >= this.v) {
             return;
         }
-        if (w < 0 || w >= n) {
+        if (w < 0 || w >= this.v) {
             return;
         }
         if (hasEdge(v, w)) {
@@ -80,14 +80,14 @@ public class DenseGraph {
         if (!this.directed) {
             g[w][v] = 1;
         }
-        m++;
+        e++;
     }
 
     public boolean hasEdge(int v, int w) {
-        if (v < 0 || v >= n) {
+        if (v < 0 || v >= this.v) {
             throw new RuntimeException();
         }
-        if (w < 0 || w >= n) {
+        if (w < 0 || w >= this.v) {
             throw new RuntimeException();
         }
         return g[v][w] == 1;
