@@ -11,6 +11,9 @@ import java.util.List;
  * Dense graph use Adjacency Matrix
  *
  * space complexity O(n^2) n is the number of vertices
+ * limitation:
+ *      - space complexity O(n^2)
+ *      - time complexity O(n) for get all adjacent edges
  */
 public class DenseGraph {
     /**
