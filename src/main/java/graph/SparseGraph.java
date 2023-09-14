@@ -1,5 +1,7 @@
 package graph;
 
+import array.Array;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,30 +14,33 @@ import java.util.Stack;
 /**
  * @author enyi.lr
  * @version $Id: SparseGraph.java, v 0.1 2019‐06‐13 12:19 AM enyi.lr Exp $$ 稀疏图：Adjacency list
+ * space complexity O(V+E)
  */
 public class SparseGraph {
 
     /**
      * the count of the node
      */
-    private int     n;
+    private int v;
     /**
      * the count of the edge
      */
-    private int     m;
+    private int e;
     /**
      * if it is a directed graph
      */
     private boolean directed;
 
+    // can use ArrayList<Set<Integer>> g to improve performance
+    ArrayList<Set<Integer>> graph;
     ArrayList<ArrayList<Integer>> g;
 
-    public SparseGraph(int n, boolean directed) {
-        this.n = n;
+    public SparseGraph(int v, boolean directed) {
+        this.v = v;
         this.directed = directed;
-        this.m = 0;
-        g = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
+        this.e = 0;
+        g = new ArrayList<>(v);
+        for (int i = 0; i < v; i++) {
             ArrayList<Integer> list = new ArrayList<>();
             g.add(list);
         }
@@ -45,10 +50,10 @@ public class SparseGraph {
 
 
     public void addEdge(int v, int w) {
-        if (v < 0 || v >= n) {
+        if (v < 0 || v >= this.v) {
             return;
         }
-        if (w < 0 || w >= n) {
+        if (w < 0 || w >= this.v) {
             return;
         }
         // 允许平行边 因为每次判断平行边的效率是O(n),成本有点高
@@ -59,15 +64,15 @@ public class SparseGraph {
         if (v != w && !directed) {
             g.get(w).add(v);
         }
-        m++;
+        e++;
 
     }
 
     public void removeEdge(int v, int w) {
-        if (v < 0 || v >= n) {
+        if (v < 0 || v >= this.v) {
             return;
         }
-        if (w < 0 || w >= n) {
+        if (w < 0 || w >= this.v) {
             return;
         }
         int index = -1;
@@ -92,14 +97,14 @@ public class SparseGraph {
                 g.get(w).remove(index2);
             }
         }
-        m--;
+        e--;
     }
 
     public boolean hasEdge(int v, int w) {
-        if (v < 0 || v >= n) {
+        if (v < 0 || v >= this.v) {
             throw new RuntimeException();
         }
-        if (w < 0 || w >= n) {
+        if (w < 0 || w >= this.v) {
             throw new RuntimeException();
         }
         return g.get(v).contains(w);
@@ -115,12 +120,16 @@ public class SparseGraph {
         return g.get(index);
     }
 
+    public int getDegree(int index) {
+        return g.get(index).size();
+    }
+
     public int getNodeCount() {
-        return n;
+        return v;
     }
 
     public int getEdgeCount() {
-        return m;
+        return e;
     }
 
     /**********DFS***********************************************************************************************************/
@@ -128,7 +137,7 @@ public class SparseGraph {
     public void DFS(int v) {
         // Mark all the vertices as not visited(set as
         // false by default in java)
-        boolean[] visited = new boolean[n];
+        boolean[] visited = new boolean[this.v];
         DFSUtil(v, visited);
     }
 
@@ -152,8 +161,8 @@ public class SparseGraph {
      */
     public int getConnectedComponentCount() {
         int count = 0;
-        boolean[] visited = new boolean[n];
-        for (int i = 0; i < n; i++) {
+        boolean[] visited = new boolean[v];
+        for (int i = 0; i < v; i++) {
             if (!visited[i]) {
                 DFSUtil(i, visited);
                 count++;
@@ -164,8 +173,8 @@ public class SparseGraph {
 
     public List<List<Integer>> getAllConnectedComponent() {
         LinkedList<List<Integer>> result = new LinkedList<>();
-        boolean[] visited = new boolean[n];
-        for (int i = 0; i < n; i++) {
+        boolean[] visited = new boolean[v];
+        for (int i = 0; i < v; i++) {
             if (!visited[i]) {
                 LinkedList<Integer> re = DFSVisitedVertices(i, visited);
                 result.add(re);
@@ -221,8 +230,8 @@ public class SparseGraph {
     public void BFS(int v) {
         // Mark all the vertices as not visited(set as
         // false by default in java)
-        boolean[] visited = new boolean[n];
-        boolean[] entrancedQueue = new boolean[n];
+        boolean[] visited = new boolean[this.v];
+        boolean[] entrancedQueue = new boolean[this.v];
         BFSUtil(v, visited, entrancedQueue);
     }
 
@@ -262,8 +271,8 @@ public class SparseGraph {
     }
 
     public LinkedList<Integer> getNearestPath(int vertex1, int vertex2) {
-        boolean[] visited = new boolean[n];
-        boolean[] entrancedQueue = new boolean[n];
+        boolean[] visited = new boolean[v];
+        boolean[] entrancedQueue = new boolean[v];
         Map<Integer, Integer> fromMap = new HashMap<>();
         BFSAndSaveFromVertex(vertex1, visited, entrancedQueue, fromMap);
         LinkedList<Integer> linkedList = new LinkedList<>();
@@ -300,7 +309,7 @@ public class SparseGraph {
     /**********PATH***********************************************************************************************************/
 
     public boolean hasPath(int vertex1, int vertex2) {
-        boolean[] visited = new boolean[n];
+        boolean[] visited = new boolean[v];
         DFSUtil(vertex1, visited);
         return visited[vertex2];
     }
@@ -314,7 +323,7 @@ public class SparseGraph {
     public LinkedList<Integer> getOnePath(int vertex1, int vertex2) {
         Map<Integer, Integer> fromVertex = new HashMap<>();
         LinkedList<Integer> linkedList = new LinkedList<>();
-        boolean[] visited = new boolean[n];
+        boolean[] visited = new boolean[v];
         if (hasPath(vertex1, vertex2)) {
             DFSAndSaveFromVertex(vertex1, visited, fromVertex);
         }
