@@ -58,6 +58,16 @@ public class DenseGraph {
         return result;
     }
 
+    public int degree(int v) {
+        int[] edges = g[v];
+        int degree = 0;
+        for (int i = 0; i < edges.length; i++) {
+            if (edges[i] == 1)
+                degree++;
+        }
+        return degree;
+    }
+
     public int getNodeCount() {
         return v;
     }
