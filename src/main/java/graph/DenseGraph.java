@@ -9,6 +9,8 @@ import java.util.List;
  * <p>
  * 稠密图
  * Dense graph use Adjacency Matrix
+ *
+ * space complexity O(n^2) n is the number of vertices
  */
 public class DenseGraph {
     /**
@@ -39,7 +41,7 @@ public class DenseGraph {
 
     /**
      * get all adjacent edges
-     *
+     * time complexity O(n)
      * @param index
      * @return
      */
@@ -58,6 +60,7 @@ public class DenseGraph {
         return result;
     }
 
+    // O(n)
     public int degree(int v) {
         return getAllAdjacentEdges(v).length;
     }
@@ -87,6 +90,7 @@ public class DenseGraph {
         e++;
     }
 
+    // O(1)
     public boolean hasEdge(int v, int w) {
         if (v < 0 || v >= this.v) {
             throw new RuntimeException();
