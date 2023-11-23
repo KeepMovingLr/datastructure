@@ -78,7 +78,7 @@ public class SparseGraph {
         int index = -1;
         ArrayList<Integer> arrayList = g.get(v);
         for (int i = 0; i < arrayList.size(); i++) {
-            if (arrayList.get(i) == w){
+            if (arrayList.get(i) == w) {
                 index = i;
             }
         }
@@ -89,11 +89,11 @@ public class SparseGraph {
             int index2 = -1;
             ArrayList<Integer> arrayList2 = g.get(w);
             for (int i = 0; i < arrayList2.size(); i++) {
-                if (arrayList2.get(i) == v){
+                if (arrayList2.get(i) == v) {
                     index2 = i;
                 }
             }
-            if (index2 != -1){
+            if (index2 != -1) {
                 g.get(w).remove(index2);
             }
         }
@@ -222,6 +222,32 @@ public class SparseGraph {
             }
         }
         // if all the children has no cycle, then remove it
+        previous.remove(vertex);
+        return false;
+    }
+
+    /**
+     * another way to detect loop, similar to dfs
+     *
+     * @param vertex
+     * @param visited
+     * @param previous
+     * @return
+     */
+    public boolean hasLoop2(int vertex, boolean[] visited, Set<Integer> previous) {
+        visited[vertex] = true;
+        previous.add(vertex);
+        List<Integer> adjacent = getAllAdjacentVertex(vertex);
+        for (Integer a : adjacent) {
+            if (previous.contains(a)) {
+                return true;
+            }
+            if (!visited[a]) {
+                if (hasLoop2(a, visited, previous)) {
+                    return true;
+                }
+            }
+        }
         previous.remove(vertex);
         return false;
     }
