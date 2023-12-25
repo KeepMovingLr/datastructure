@@ -112,7 +112,7 @@ public class BSTNONRecursion<E extends Comparable> {
     }
 
     /*************************************************************************************************/
-    // todo  inorder traversal of a tree which root is root in the way of non recursion
+    // todo remember it
     private void inOrderTraversal(Node root) {
         Stack<Node> stack = new Stack<>();
         Node cur = root;
