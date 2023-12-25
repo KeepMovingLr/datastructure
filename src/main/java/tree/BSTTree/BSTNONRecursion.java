@@ -14,7 +14,7 @@ public class BSTNONRecursion<E extends Comparable> {
     private int size;
 
     private class Node {
-        public E    value;
+        public E value;
         public Node left, right;
 
         public Node(E value) {
@@ -130,18 +130,36 @@ public class BSTNONRecursion<E extends Comparable> {
     /*************************************************************************************************/
 
     // todo  postorder traversal of a tree which root is root in the way of non recursion
-
+    // use two stack. remember it
+    private void postOrderTraversal(Node root) {
+        if (root == null) {
+            return;
+        }
+        Stack<Node> s1 = new Stack<>();
+        Stack<Node> s2 = new Stack<>();
+        s1.push(root);
+        while (!s1.isEmpty()) {
+            Node temp = s1.pop();
+            s2.push(temp);
+            if (temp.left != null) {
+                s1.push(temp.left);
+            }
+            if (temp.right != null) {
+                s1.push(temp.right);
+            }
+        }
+        while (!s2.isEmpty()) {
+            visitNode(s2.pop());
+        }
+    }
 
 
     /*************************************************************************************************/
     // todo minimum()  and maximum()
-
     public E minimum() {
         return null;
     }
     /*************************************************************************************************/
-
-
 
 
     /*************************************************************************************************/
