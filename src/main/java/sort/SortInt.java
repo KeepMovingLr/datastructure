@@ -11,6 +11,7 @@ public class SortInt {
 
     /***************************************************************/
     // time complexity O(n^2)
+    // select the least value on right part and move to head, two pointer method
     public void selectionSort(int[] array) {
         // use [0,i] contains the satisfied value
         for (int i = 0; i < array.length; i++) {
@@ -28,6 +29,7 @@ public class SortInt {
     }
 
     // 插入排序的优化写法。 如果数组本身近乎有序，那么将会是O(n)的，效率非常高
+    // 从选择索引为1的开始，往前对比，看是否小于被比较的数，如果小于，继续对比，如果不小于，说明这个位置是他需要插入的位置, 这个过程中，可以边对比边把不满足的向后移动
     public void insertionSort2(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int element = array[i];
