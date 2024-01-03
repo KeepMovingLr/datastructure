@@ -62,6 +62,7 @@ public class SortInt {
 
 
     /***************************************************************/
+    // 像冒泡一下，从左到右去对比，直到最后一个，最后一个将是最大的，不断循环，直到有序为止
     public void bubbleSort(int[] array) {
         // array.length -1 is the times that need to be bubbled
         for (int j = 0; j < array.length - 1; j++) {
