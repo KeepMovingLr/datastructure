@@ -109,11 +109,11 @@ public class SegmentTree<E> {
             return;
         }
         int mid = l + (r - l) / 2;
-        if (mid >= index) {
+        if (index <= mid) {
             // left
             set(leftChild(treeRoot), l, mid, index, value);
         }
-        if (mid + 1 <= index) {
+        if (index >= mid + 1) {
             // right
             set(rightChild(treeRoot), mid + 1, r, index, value);
         }
