@@ -3,6 +3,13 @@ package segmenttree;
 /**
  * @author enyi.lr
  * @version $Id: SegmentTree.java, v 0.1 2019‐06‐01 1:38 PM enyi.lr Exp $$
+ * Segment Tree, Interval Tree
+ * 给定一个区间（区间是固定的，但是区间中的元素可能是动态变化的），
+ * 更新：更新区间中一个元素或者一个区间的值 O(log(n))
+ * 查询一个区间[i,j]的最大值,最小值 或者 取件数据和  O(log(n))
+ *
+ * 线段树是 二叉树，是个平衡二叉树，但不是满二叉树或者完全二叉树
+ * 如果区间有n个元素，数组表示需要4n个空间，我们的线段树不考虑添加元素，即区间固定，使用4n的静态空间即可 (以空间换时间)
  */
 public class SegmentTree<E> {
 
