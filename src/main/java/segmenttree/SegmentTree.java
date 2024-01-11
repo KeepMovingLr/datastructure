@@ -7,14 +7,14 @@ package segmenttree;
  * 给定一个区间（区间是固定的，但是区间中的元素可能是动态变化的），
  * 更新：更新区间中一个元素或者一个区间的值 O(log(n))
  * 查询一个区间[i,j]的最大值,最小值 或者 取件数据和  O(log(n))
- *
+ * <p>
  * 线段树是 二叉树，是个平衡二叉树，但不是满二叉树或者完全二叉树
  * 如果区间有n个元素，数组表示需要4n个空间，我们的线段树不考虑添加元素，即区间固定，使用4n的静态空间即可 (以空间换时间)
  */
 public class SegmentTree<E> {
 
-    private E[]       data;
-    private E[]       tree;
+    private E[] data;
+    private E[] tree;
     private Merger<E> merger;
 
     public SegmentTree(E[] data, Merger<E> merger) {
@@ -29,6 +29,9 @@ public class SegmentTree<E> {
     }
 
     /**
+     * notice the definition
+     * 在treeIndex的位置创建表示区间[i,j]的线段树
+     *
      * @param rootIndex the root index of segment tree
      * @param l         the left index of data which wants to be built a segment tree
      * @param r         the right index of data which wants to be built a segment tree
@@ -63,6 +66,7 @@ public class SegmentTree<E> {
      * if treeRoot is 0, the segment represents data[0,data.length-1]
      * if treeRoot is 1, the segment represents data[0,mid]  mid = 0 + (data.length-0)/2;
      * if treeRoot is 2, the segment represents data[mid+1,data.length-1]  mid = 0 + (data.length-0)/2;
+     *
      * @param treeRoot
      * @param l
      * @param r
