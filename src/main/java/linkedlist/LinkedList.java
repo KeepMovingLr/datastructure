@@ -131,7 +131,7 @@ public class LinkedList<E> {
         return removeByIndex(size - 1);
     }
 
-    // important
+    // important, need to fully understand it
     public void reverseList() {
         Node pre = null;
         Node cur = dummyHead.next;
