@@ -22,6 +22,10 @@ public class Array<E> {
         this(10);
     }
 
+    /**
+     * time complexity O(n)
+     * @param arr
+     */
     public Array(E[] arr) {
         data = (E[]) new Object[arr.length];
         for (int i = 0; i < arr.length; i++) {
@@ -54,7 +58,7 @@ public class Array<E> {
 
     /**
      * add an element e to the location where it's index is index
-     *
+     * time complexity O(n)
      * @param index
      * @param e
      */
@@ -83,7 +87,7 @@ public class Array<E> {
 
     /**
      * get the element which index is index
-     *
+     * O(1)
      * @param index
      * @return
      */
@@ -107,7 +111,7 @@ public class Array<E> {
 
     /**
      * check weather the array contains element e
-     *
+     * time complexity O(n)
      * @param e
      * @return
      */
@@ -120,7 +124,7 @@ public class Array<E> {
 
     /**
      * find the index of the element which value is
-     *
+     * time complexity O(n)
      * @param e
      * @return
      */
@@ -133,7 +137,7 @@ public class Array<E> {
 
     /**
      * removed the element which index is index
-     *
+     * time complexity O(n)
      * @param index
      * @return the value of the deleted element
      */
