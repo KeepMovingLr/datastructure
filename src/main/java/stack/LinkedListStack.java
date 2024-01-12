@@ -24,6 +24,10 @@ public class LinkedListStack<E> implements Stack<E> {
         return list.isEmpty();
     }
 
+    /**
+     * Adding or removing data at the beginning of the list is much more faster than doing them at the end of the list
+     * @return
+     */
     @Override
     public E pop() {
         return list.removeFirst();
