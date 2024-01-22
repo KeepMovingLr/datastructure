@@ -205,6 +205,7 @@ public class SparseGraph {
         return false;
     }
 
+    // 从顶点vertex出发，判断图中是否有环
     public boolean hasCycle(int vertex, boolean[] visited, int parent) {
         visited[vertex] = true;
         List<Integer> allAdjacentVertex = getAllAdjacentVertex(vertex);
