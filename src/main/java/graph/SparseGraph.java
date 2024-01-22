@@ -48,7 +48,7 @@ public class SparseGraph {
 
     // Kahn's Algorithm https://leetcode.com/explore/learn/card/graph/623/kahns-algorithm-for-topological-sorting/3886/
 
-
+    // add an edge between vertex v and vertex w
     public void addEdge(int v, int w) {
         if (v < 0 || v >= this.v) {
             return;
@@ -68,6 +68,7 @@ public class SparseGraph {
 
     }
 
+    // remove an edge between vertex v and vertex w
     public void removeEdge(int v, int w) {
         if (v < 0 || v >= this.v) {
             return;
@@ -100,6 +101,7 @@ public class SparseGraph {
         e--;
     }
 
+    // check if there is an edge between vertex v and vertex w
     public boolean hasEdge(int v, int w) {
         if (v < 0 || v >= this.v) {
             throw new RuntimeException();
