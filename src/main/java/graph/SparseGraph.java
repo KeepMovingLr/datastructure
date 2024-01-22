@@ -2,14 +2,7 @@ package graph;
 
 import array.Array;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author enyi.lr
@@ -202,7 +195,9 @@ public class SparseGraph {
      * understand******************************************************************************************************/
 
     /**
+     * has a bug
      * It is a backtracking method
+     *
      * @param vertex
      * @param visited
      * @param previous from vertex to current node has been visited
@@ -230,8 +225,10 @@ public class SparseGraph {
     }
 
     /**
+     * Has a bug????
      * another way to detect loop, similar to dfs
      * also a backtracking method
+     *
      * @param vertex
      * @param visited
      * @param previous
@@ -397,12 +394,18 @@ public class SparseGraph {
         SparseGraph sparseGraph = new SparseGraph(7, false);
         sparseGraph.addEdge(0, 1);
         sparseGraph.addEdge(0, 2);
+        /*
         sparseGraph.addEdge(0, 5);
         sparseGraph.addEdge(0, 6);
         sparseGraph.addEdge(4, 6);
         sparseGraph.addEdge(4, 5);
         sparseGraph.addEdge(4, 3);
         sparseGraph.addEdge(5, 3);
+        */
+        boolean hasLoop = sparseGraph.hasLoop(0, new boolean[7], new HashSet<>());
+        boolean hasLoop2 = sparseGraph.hasLoop2(0, new boolean[7], new HashSet<>());
+        System.out.println("hasLoop - " + hasLoop);
+        System.out.println("hasLoop2 - " + hasLoop2);
         /*
         sparseGraph.DFS(0);
         System.out.println("connected:" + sparseGraph.getConnectedComponentCount());
