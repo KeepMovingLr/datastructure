@@ -1,24 +1,24 @@
-package interview;
+package others.interview;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 // 给定一个基本数字假设3 ，6，9 还有一个target 数组比如 6472，找到一个由基本数组组成的，小于等于target最大的
-public class Microsoft2 {
+public class Microsoft3 {
 
     public static void main(String[] args) {
-        Microsoft2 microsoft2 = new Microsoft2();
-        int[] nums = {3, 6, 9, 4};
+        Microsoft3 microsoft2 = new Microsoft3();
+        int[] nums = {3, 6, 9};
         for (int i = 0; i < 10000; i++) {
             System.out.println("test " + i);
             if (microsoft2.getTarget(i, nums) != microsoft2.getTargetForce(i, nums)) {
                 System.out.println("different" + i);
                 System.out.println("different greedy " + microsoft2.getTarget(i, nums));
                 System.out.println("different force " + microsoft2.getTargetForce(i, nums));
-
             }
         }
+        microsoft2.getTarget(2,nums);
     }
 
     public int getTarget(int target, int[] nums) {
@@ -28,12 +28,17 @@ public class Microsoft2 {
         for (int i = 0; i < nums.length; i++) {
             strings[i] = nums[i] + "";
         }
-        String ans = select(target + "", strings, needSelect, true);
-        if ("NA".equals(ans)) return -1;
+        String ans = select(target + "", strings, needSelect);
+        if ("NA".equals(ans)) {
+            if (target > 10)
+                ans =  select(target + "", strings, needSelect - 1);
+            if ("NA".equals(ans))
+                return -1;
+        }
         return Integer.parseInt(ans);
     }
 
-    public String select(String target, String[] nums, int needSelectCount, boolean canIgnoreOne) {
+    public String select(String target, String[] nums, int needSelectCount) {
         int numCount = target.length();
         if (numCount == 0)
             return "";
@@ -48,17 +53,11 @@ public class Microsoft2 {
             int cur = Integer.parseInt(nums[i]);
             String subRes = "NA";
             if (cur == highest) { // select
-                subRes = select(target.substring(1), nums, needSelectCount - 1, false);
+                subRes = select(target.substring(1), nums, needSelectCount - 1);
             } else if (cur < highest) {
-                subRes = select(1 + target.substring(1), nums, needSelectCount - 1, false);
+                subRes = select(1 + target.substring(1), nums, needSelectCount - 1);
             }
             if (!"NA".equals(subRes)) return cur + subRes;
-            if (i == 0 && canIgnoreOne) {
-                if (target.length() > 1) {
-                    subRes = select(target, nums, needSelectCount - 1, true);
-                    if (!"NA".equals(subRes)) return subRes;
-                }
-            }
         }
 
         return "NA";

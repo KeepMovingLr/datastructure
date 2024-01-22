@@ -1,4 +1,4 @@
-package interview;
+package others.interview;
 
 /**
  * @author enyi.lr

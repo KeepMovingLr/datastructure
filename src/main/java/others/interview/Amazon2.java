@@ -1,4 +1,4 @@
-package interview;
+package others.interview;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
