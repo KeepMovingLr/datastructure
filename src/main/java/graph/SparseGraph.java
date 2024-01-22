@@ -202,6 +202,7 @@ public class SparseGraph {
      * understand******************************************************************************************************/
 
     /**
+     * It is a backtracking method
      * @param vertex
      * @param visited
      * @param previous from vertex to current node has been visited
@@ -211,12 +212,12 @@ public class SparseGraph {
         if (previous.contains(vertex)) {
             return true;
         }
-        if (visited[vertex]) {
+        if (visited[vertex]) { // can use an illustrate to understand this. As when we loop the children, we don't check if visited, so it has this statement
             return false;
         }
         visited[vertex] = true;
         previous.add(vertex);
-        // check if all of the children has cycle
+        // check if all the children have a cycle
         List<Integer> allAdjacentVertex = getAllAdjacentVertex(vertex);
         for (Integer adjacentVertex : allAdjacentVertex) {
             if (hasLoop(adjacentVertex, visited, previous)) {
@@ -230,7 +231,7 @@ public class SparseGraph {
 
     /**
      * another way to detect loop, similar to dfs
-     *
+     * also a backtracking method
      * @param vertex
      * @param visited
      * @param previous
