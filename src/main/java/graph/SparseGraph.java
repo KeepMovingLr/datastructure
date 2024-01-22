@@ -194,6 +194,18 @@ public class SparseGraph {
     /**********detect loop*****important and hard to
      * understand******************************************************************************************************/
 
+    public boolean isCyclic() {
+        boolean[] visited = new boolean[v];
+        Set<Integer> previous = new HashSet<>();
+        for (int i = 0; i < v; i++) {
+            if (!visited[i]) {
+                if (hasLoop(i, visited, previous, -1))
+                    return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * has a bug
      * It is a backtracking method
@@ -203,7 +215,7 @@ public class SparseGraph {
      * @param previous from vertex to current node has been visited
      * @return
      */
-    public boolean hasLoop(int vertex, boolean[] visited, Set<Integer> previous) {
+    public boolean hasLoop(int vertex, boolean[] visited, Set<Integer> previous, int parent) {
         if (previous.contains(vertex)) {
             return true;
         }
@@ -215,7 +227,9 @@ public class SparseGraph {
         // check if all the children have a cycle
         List<Integer> allAdjacentVertex = getAllAdjacentVertex(vertex);
         for (Integer adjacentVertex : allAdjacentVertex) {
-            if (hasLoop(adjacentVertex, visited, previous)) {
+            if (adjacentVertex == parent)
+                continue;
+            if (hasLoop(adjacentVertex, visited, previous, vertex)) {
                 return true;
             }
         }
@@ -394,18 +408,13 @@ public class SparseGraph {
         SparseGraph sparseGraph = new SparseGraph(7, false);
         sparseGraph.addEdge(0, 1);
         sparseGraph.addEdge(0, 2);
-        /*
-        sparseGraph.addEdge(0, 5);
+        /*sparseGraph.addEdge(0, 5);
         sparseGraph.addEdge(0, 6);
         sparseGraph.addEdge(4, 6);
         sparseGraph.addEdge(4, 5);
         sparseGraph.addEdge(4, 3);
-        sparseGraph.addEdge(5, 3);
-        */
-        boolean hasLoop = sparseGraph.hasLoop(0, new boolean[7], new HashSet<>());
-        boolean hasLoop2 = sparseGraph.hasLoop2(0, new boolean[7], new HashSet<>());
-        System.out.println("hasLoop - " + hasLoop);
-        System.out.println("hasLoop2 - " + hasLoop2);
+        sparseGraph.addEdge(5, 3);*/
+        System.out.println("has cycle - " + sparseGraph.isCyclic());
         /*
         sparseGraph.DFS(0);
         System.out.println("connected:" + sparseGraph.getConnectedComponentCount());
