@@ -196,18 +196,32 @@ public class SparseGraph {
 
     public boolean isCyclic() {
         boolean[] visited = new boolean[v];
-        Set<Integer> previous = new HashSet<>();
         for (int i = 0; i < v; i++) {
             if (!visited[i]) {
-                if (hasLoop(i, visited, previous, -1))
+                if (hasCycle(i, visited, i))
                     return true;
             }
         }
         return false;
     }
 
+    public boolean hasCycle(int vertex, boolean[] visited, int parent) {
+        visited[vertex] = true;
+        List<Integer> allAdjacentVertex = getAllAdjacentVertex(vertex);
+        for (Integer adj : allAdjacentVertex) {
+            if (!visited[adj]) {
+                if (hasCycle(adj, visited, vertex)) {
+                    return true;
+                }
+            } else if (adj != parent) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
-     * has a bug
+     * todo has a bug
      * It is a backtracking method
      *
      * @param vertex
@@ -239,7 +253,7 @@ public class SparseGraph {
     }
 
     /**
-     * Has a bug????
+     * todo Has a bug????
      * another way to detect loop, similar to dfs
      * also a backtracking method
      *
@@ -408,12 +422,12 @@ public class SparseGraph {
         SparseGraph sparseGraph = new SparseGraph(7, false);
         sparseGraph.addEdge(0, 1);
         sparseGraph.addEdge(0, 2);
-        /*sparseGraph.addEdge(0, 5);
+        sparseGraph.addEdge(0, 5);
         sparseGraph.addEdge(0, 6);
         sparseGraph.addEdge(4, 6);
         sparseGraph.addEdge(4, 5);
         sparseGraph.addEdge(4, 3);
-        sparseGraph.addEdge(5, 3);*/
+        sparseGraph.addEdge(5, 3);
         System.out.println("has cycle - " + sparseGraph.isCyclic());
         /*
         sparseGraph.DFS(0);
