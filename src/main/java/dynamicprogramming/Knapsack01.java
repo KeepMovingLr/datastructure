@@ -29,7 +29,7 @@ public class Knapsack01 {
     private int bestValue(int[] w, int[] v, int index, int c) {
         if (c <= 0 || index < 0)
             return 0;
-        // not select the index stuff
+        // not select the index object
         int res = bestValue(w, v, index - 1, c);
         // select index
         if (w[index] <= c) {
@@ -46,8 +46,8 @@ public class Knapsack01 {
      * memo[i][c] means 从下标0， i - 1 的物品里任取，放进容量为c的背包，最大价值
      *
      * @param capacity the capacity of the knapsack
-     * @param w        the weight of all stuffs
-     * @param v        the value of all stuffs
+     * @param w        the weight of objects
+     * @param v        the value of objects
      * @return
      */
     public int knapsack01_Top_Down(int capacity, int[] w, int[] v) {
@@ -77,8 +77,15 @@ public class Knapsack01 {
     }
 
     /*******************************************************************************/
+    /**
+     * memo[i][c] means 从下标0， i - 1 的物品里任取，放进容量为c的背包，最大价值
+     * @param capacity
+     * @param w
+     * @param v
+     * @return
+     */
     public int knapsack01_Bottom_Top(int capacity, int[] w, int[] v) {
-        // the count of the stuff need to be added into knapsack
+        // the count of the objects need to be added into knapsack
         int count = w.length;
         this.memo = new int[count][capacity + 1];
         for (int c = 0; c <= capacity; c++) {
