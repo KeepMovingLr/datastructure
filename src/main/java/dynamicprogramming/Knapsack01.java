@@ -48,7 +48,8 @@ public class Knapsack01 {
      * @param capacity the capacity of the knapsack
      * @param w        the weight of objects
      * @param v        the value of objects
-     * @return
+     * @return time complexity O(n*C)
+     * space complexity O(n*C)
      */
     public int knapsack01_Top_Down(int capacity, int[] w, int[] v) {
         // the count of the stuff need to be added into knapsack
@@ -79,15 +80,17 @@ public class Knapsack01 {
     /*******************************************************************************/
     /**
      * memo[i][c] means 从下标0， i - 1 的物品里任取，放进容量为c的背包，最大价值
+     *
      * @param capacity
      * @param w
      * @param v
-     * @return
+     * @return time complexity O(n*C)
+     * space complexity O(n*C)
      */
     public int knapsack01_Bottom_Top(int capacity, int[] w, int[] v) {
         // the count of the objects need to be added into knapsack
         int count = w.length;
-        this.memo = new int[count][capacity + 1];
+        int[][] memo = new int[count][capacity + 1];
         for (int c = 0; c <= capacity; c++) {
             memo[0][c] = c >= w[0] ? v[0] : 0;
         }
@@ -103,6 +106,38 @@ public class Knapsack01 {
         return memo[count - 1][capacity];
     }
 
+    /*******************************************************************************/
+    /**
+     * @param capacity
+     * @param w
+     * @param v
+     * @return
+     * time complexity O(n*C)
+     * space complexity O(C)
+     */
+    public int knapsack01_Bottom_Top_Optimize(int capacity, int[] w, int[] v) {
+        // the count of the objects need to be added into knapsack
+        int count = w.length;
+        int[] memo = new int[capacity + 1];
+        // select index 0 object
+        for (int c = capacity; c >= 0; c--) {
+            memo[c] = c >= w[0] ? v[0] : 0;
+        }
+
+        for (int i = 1; i < count; i++) {
+            for (int c = capacity; c >= 0; c--) {
+                if (c < w[i]) {
+                    break;
+                }
+                // select i
+                int value = v[i] + memo[c - w[i]];
+                // not select i , then value is memo[c]
+                memo[c] = Math.max(memo[c], value);
+            }
+        }
+
+        return memo[capacity];
+    }
 
     /*******************************************************************************/
 
@@ -111,8 +146,10 @@ public class Knapsack01 {
         int total = knapsack01.knapsack01_Top_Down(10, new int[]{6, 2, 3, 1}, new int[]{3, 1, 3, 10});
         int total2 = knapsack01.knapsack01_Bottom_Top(10, new int[]{6, 2, 3, 1}, new int[]{3, 1, 3, 10});
         int total3 = knapsack01.knapsack01(10, new int[]{6, 2, 3, 1}, new int[]{3, 1, 3, 10});
+        int total4 = knapsack01.knapsack01_Bottom_Top_Optimize(10, new int[]{6, 2, 3, 1}, new int[]{3, 1, 3, 10});
         System.out.println("test total is " + total);
         System.out.println("test total2 is " + total2);
         System.out.println("test total3 is " + total3);
+        System.out.println("test total4 is " + total4);
     }
 }
