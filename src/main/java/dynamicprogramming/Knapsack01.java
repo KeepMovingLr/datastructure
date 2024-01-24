@@ -43,7 +43,7 @@ public class Knapsack01 {
     private int[][] memo;
 
     /**
-     * memo[i][c] means 从下标0， i - 1 的物品里任取，放进容量为c的背包，最大价值
+     * memo[i][c] means 从下标0 到 i - 1 的物品里任取，放进容量为c的背包，最大价值
      *
      * @param capacity the capacity of the knapsack
      * @param w        the weight of objects
@@ -52,7 +52,7 @@ public class Knapsack01 {
      * space complexity O(n*C)
      */
     public int knapsack01_Top_Down(int capacity, int[] w, int[] v) {
-        // the count of the stuff need to be added into knapsack
+        // the count of the objects need to be added into knapsack
         int count = w.length;
         this.memo = new int[count][capacity + 1];
         for (int[] m : memo) {
@@ -67,7 +67,7 @@ public class Knapsack01 {
             return 0;
         if (memo[index][c] != -1)
             return memo[index][c];
-        // not select the index stuff
+        // not select the index object
         int res = bestValue2(w, v, index - 1, c);
         // select index
         if (c >= w[index]) {
