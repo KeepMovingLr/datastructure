@@ -14,51 +14,34 @@ import java.util.*;
  */
 public class Google2 {
 
-    // time complexity O(n^2) space O(n)
-    // todo is this correct solution?
+    // time complexity O(n^2) space O(1)
     public int countDiscardedStudent(int[][] result) {
         if (result.length == 0)
             return 0;
-        Arrays.sort(result, (a, b) -> a[0] - b[0]);
-        Map<int[], Integer> map = new HashMap<>();
-        Map<Integer, int[]> map2 = new HashMap<>();
-        for (int i = 0; i < result.length; i++) {
-            map.put(result[i], i);
-            map2.put(i, result[i]);
+        // 按数学排序，数学相等的时候按照英语排序
+        Arrays.sort(result, (a, b) -> a[0] - b[0] == 0 ? a[1] - b[1] : a[0] - b[0]);
+        Set<Integer> removedSet = new HashSet<>(); // store removed index
+
+        for (int i = result.length - 1; i >= 0; i--) {
+            int[] mathHighest = result[i];
+            for (int j = i - 1; j >= 0; j--) {
+                int[] mathSecondHighest = result[j];
+                if (mathSecondHighest[0] == mathHighest[0])
+                    continue;
+                if (mathHighest[1] > mathSecondHighest[1]) // English is higher than j
+                    removedSet.add(j);
+            }
         }
-        Arrays.sort(result, (a, b) -> a[1] - b[1]);
-        int max = -1;
-        Set<Integer> removeSet = new HashSet<>();
-        for (int j = result.length - 1; j >= 0; j--) {
-            int[] highest = result[j];
-            int idx = map.get(highest);
-            max = Math.max(max, idx - 1);
-        }
-        return max + 1;
+
+        return removedSet.size();
     }
 
-    // time complexity O(nlogn) space O(1)
-    public int countDiscardedStudent2(int[][] result) {
-        if (result.length == 0)
-            return 0;
-        Arrays.sort(result, (a, b) -> a[0] - b[0]);
-        int res = 0;
-        int cur = result[result.length - 1][1];
-        for (int i = result.length - 2; i >= 0; i--) {
-            if (cur > result[i][1])
-                res++;
-            else
-                cur = result[i][1];
-        }
-        return res;
-    }
 
     public static void main(String[] args) {
         Google2 google2 = new Google2();
 //        int[][] grade = {{1, 2}, {3, 4}, {5, 6}, {2, 1}};
-        int[][] grade = {{2, 1}, {1, 2}, {3, 4}};
+        int[][] grade = {{1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 2}, {3, 3}};
         int count = google2.countDiscardedStudent(grade);
-        int count2 = google2.countDiscardedStudent2(grade);
-        System.out.println(count == count2);
+        System.out.println(count);
     }
 }
