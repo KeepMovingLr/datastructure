@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class Google2 {
 
-    // time complexity O(n^2) space O(1)
+    // time complexity O(n^2) space O(n)
     public int countDiscardedStudent(int[][] result) {
         if (result.length == 0)
             return 0;
