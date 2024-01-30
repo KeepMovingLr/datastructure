@@ -105,6 +105,29 @@ public class Datavisor {
         return maxKey;
     }
 
+    // time complexity O(nlogn) n is the length of interval, because I used a sorted tree
+    // space complexity is O(n)
+    public int getMostHour(int[][] intervals) {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        for (int[] interval : intervals) {
+            int count = map.getOrDefault(interval[0], 0);
+            map.put(interval[0], count + 1);
+            count = map.getOrDefault(interval[1], 0);
+            map.put(interval[1], count - 1);
+        }
+        int max = 0;
+        int maxKey = -1;
+        int curMax = 0;
+        for (int key : map.keySet()) {
+            curMax += map.get(key);
+            if (curMax > max) {
+                max = curMax;
+                maxKey = key;
+            }
+        }
+        return maxKey;
+    }
+
 
     public static void main(String[] args) {
         Datavisor datavisor = new Datavisor();
@@ -113,8 +136,10 @@ public class Datavisor {
 //        int[][] intervals = {{2025, 2041}, {1988, 2007}, {2003, 2046}, {2045, 2049}, {2025, 2027}, {2014, 2040}, {2014, 2027}, {2011, 2027}, {1972, 2019}};
         int bestHour = datavisor.getBestHour(intervals);
         int mostHour2 = datavisor.getMostHour2(intervals);
+        int mostHour3 = datavisor.getMostHour(intervals);
         System.out.println(bestHour);
         System.out.println(mostHour2);
+        System.out.println(mostHour3);
     }
 
 }
