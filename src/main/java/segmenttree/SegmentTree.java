@@ -14,6 +14,8 @@ package segmenttree;
  *
  * https://cp-algorithms.com/data_structures/segment_tree.html#dynamic-segment-tree
  */
+
+// the recursion implement of SegmentTree
 public class SegmentTree<E> {
 
     private E[] data;

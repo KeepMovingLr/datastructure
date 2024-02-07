@@ -3,7 +3,7 @@ package segmenttree;
 /**
  * Similar to SegmentTree, I just use a class as TreeNode to make it easy to understand
  */
-public class MySegmentTree<E> {
+public class MyLazySegmentTree<E> {
     class SegmentNode<E> {
 
         int rangeL;
@@ -33,7 +33,7 @@ public class MySegmentTree<E> {
 
     private SegmentNode<E> root;
 
-    public MySegmentTree(E[] data, Merger<E> merger) {
+    public MyLazySegmentTree(E[] data, Merger<E> merger) {
         this.data = data;
         this.merger = merger;
         this.root = buildSegmentTree(0, data.length - 1);
