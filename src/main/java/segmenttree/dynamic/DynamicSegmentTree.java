@@ -6,14 +6,8 @@ package segmenttree.dynamic;
  * <p>
  * Dynamic Segment Tree: similar to Segment tree but with some properties:
  * Instead of using an array to represent the intervals, a node is created whenever a new interval is to be updated.
- * class SegmentNode {
- * int value;
- * SegmentNode L , R;
- * }
- * the above structure is the same as a Binary Search Tree.
- * The Interval of the root is from [1, N]
- * the interval of the left subtree will be [1, N/2] and the interval for the right subtree will be [N/2 + 1, N].
  * We are creating a new node only when required.
+ * when the right rang is large, we won't create every nodes when build tree, this way is good.
  */
 public class DynamicSegmentTree {
     static class SegmentNode {
