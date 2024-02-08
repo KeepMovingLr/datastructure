@@ -6,6 +6,7 @@ package segmenttree;
  */
 public class Main {
     public static void main(String[] args) {
+       /*
         Integer[] nums = {-2, 0, 3, -5, 2, -1};
         SegmentTree<Integer> segmentTree = new SegmentTree<>(nums, (a, b) -> a + b);
         System.out.println(segmentTree);
@@ -19,6 +20,13 @@ public class Main {
         mySegmentTree.update(5 , 2);
         System.out.println(mySegmentTree.query(2, 5));
         System.out.println(mySegmentTree.query(0, 5));
+        */
+
+        int[] nums2 = {-2, 0, 3, -5, 2, -1};
+        MyLazySegmentTree myLazyTree = new MyLazySegmentTree(nums2);
+        System.out.println(myLazyTree.query(0,5));
+        myLazyTree.updateRange(0,5 , 1);
+        System.out.println(myLazyTree.query(0,1));
     }
 
 }
