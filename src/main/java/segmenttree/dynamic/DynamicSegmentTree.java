@@ -4,7 +4,7 @@ package segmenttree.dynamic;
 /**
  * https://www.geeksforgeeks.org/dynamic-segment-trees-online-queries-for-range-sum-with-point-updates/?ref=lbp
  * <p>
- * Dynamic Segment Tree: similar to Segment tree but with some properties:
+ * Dynamic Segment Tree: similar to Segment tree but with some properties:<br>
  * Instead of using an array to represent the intervals, a node is created whenever a new interval is to be updated.
  * We are creating a new node only when required.
  * when the right rang is large, we won't create every nodes when build tree, this way is good.
