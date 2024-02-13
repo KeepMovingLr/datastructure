@@ -77,6 +77,7 @@ public class MyLazySegmentTree {
      */
     private int query(SegmentNode root, int queryL, int queryR) {
         int lazy = root.lazy;
+        // lazy update first
         if (lazy != 0) {
             root.val += lazy * (queryR - queryL + 1);
             root.lazy = 0;
