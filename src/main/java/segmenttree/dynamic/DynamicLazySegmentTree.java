@@ -126,8 +126,18 @@ public class DynamicLazySegmentTree {
 
     public static void main(String[] args) {
         System.out.println();
-        update(40, 60, 10);
-        System.out.println(query(0, 100));
+        update(0, 10, 1);
+        System.out.println(query(0, 10));
+        System.out.println();
+        System.out.println(query(0, 5));
+        System.out.println();
+        System.out.println(query(3, 5));
+        System.out.println();
+        System.out.println(query(3, 5));
+        System.out.println();
+        update(0, 10, 1);
+        System.out.println(query(0, 10));
+        System.out.println();
     }
 
 }
