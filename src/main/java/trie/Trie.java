@@ -6,6 +6,8 @@ import java.util.TreeMap;
  * @author enyi.lr
  * @version $Id: Trie.java, v 0.1 2019‐06‐01 7:18 PM enyi.lr Exp $$
  *  pronouncing it /ˈtriː/ (as "tree"), after the middle syllable of retrieval. However, other authors pronounce it /ˈtraɪ/ (as "try")
+ *  Trie - Prefix tree
+ *  A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings.
  */
 public class Trie {
     private class Node {
