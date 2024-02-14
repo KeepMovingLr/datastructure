@@ -95,9 +95,15 @@ public class Trie {
         trie.add("hello");
         trie.add("world");
         System.out.println(trie.contains("hell"));
+        System.out.println(trie.isPrefix("hell"));
         System.out.println(trie.contains("hello"));
+        System.out.println(trie.isPrefix("hello"));
         System.out.println(trie.contains("wor"));
+        System.out.println(trie.isPrefix("wor"));
         System.out.println(trie.contains("world"));
+        System.out.println(trie.isPrefix("world"));
+        System.out.println(trie.isPrefix("m"));
+        System.out.println(trie.contains("m"));
         System.out.println(trie.getSize());
 
     }
