@@ -1,6 +1,5 @@
 package others.interview;
 
-import jdk.internal.joptsimple.internal.Strings;
 
 /**
  * Amazon is developing a string matching library. <br>
@@ -36,15 +35,33 @@ import jdk.internal.joptsimple.internal.Strings;
  */
 public class Amazon3 {
     public static int getLongestMatch(String text, String regex) {
-        String[] res = regex.split("\\*");
-        if (res[0] != "" && res[1] != "") {
-
+        String[] prefix = regex.split("\\*");
+        StringBuilder sb = new StringBuilder();
+        sb.append(text);
+        sb = sb.reverse();
+        String textR = sb.toString();
+        sb = new StringBuilder();
+        sb.append(prefix[1]);
+        sb = sb.reverse();
+        String reverse2 = sb.toString();
+        if (prefix[0] != "" && prefix[1] != "") {
+            int idx1 = text.indexOf(prefix[0]);
+            if (idx1 == -1)
+                return -1;
+            int idx2 = textR.indexOf(reverse2);
+            if (idx2 == -1)
+                return -1;
+            idx2 = text.length() - 1 - idx2;
+            if (idx2 - idx1 + 1 < regex.length() - 1) {
+                return -1;
+            }
+            return idx2 - idx1 + 1;
         }
-
+        // todo ignore *b, b*
         return -1;
     }
 
     public static void main(String[] args) {
-        getLongestMatch("abcdef", "*af");
+        System.out.println(getLongestMatch("abcdef", "a*f"));
     }
 }
