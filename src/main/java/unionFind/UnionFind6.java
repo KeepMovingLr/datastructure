@@ -2,7 +2,10 @@ package unionFind;
 
 /**
  * @author enyi.lr
- * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$
+ * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$ <br>
+ * Path Compression Optimization
+ * time complexity O(log*n)， iterated logarithm. <br>
+ * faster than O(log(n)) but slower than O(1)
  */
 public class UnionFind6 implements UF {
 

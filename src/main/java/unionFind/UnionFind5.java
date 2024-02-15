@@ -2,7 +2,7 @@ package unionFind;
 
 /**
  * @author enyi.lr
- * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$
+ * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$ <br>
  * A Path Compression Optimization
  */
 public class UnionFind5 implements UF {
