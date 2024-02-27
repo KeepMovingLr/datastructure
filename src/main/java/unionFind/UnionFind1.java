@@ -8,7 +8,7 @@ package unionFind;
  * union - O(n) <br>
  */
 public class UnionFind1 implements UF {
-    // 我们的第一版Union-Find本质就是一个数组. I think it can also implement with map
+    // 我们的第一版Union-Find本质就是一个数组. it can also implement with map
     // we use id[i] represents the union number of the element which index is i
     private int[] id;
 
