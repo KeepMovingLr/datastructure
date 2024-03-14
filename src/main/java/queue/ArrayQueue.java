@@ -36,6 +36,10 @@ public class ArrayQueue<E> implements Queue<E> {
         array.addLast(e);
     }
 
+    /**
+     * note that: this operation is cost, the time complexity is O(n)
+     * @return
+     */
     @Override
     public E dequeue() {
         return array.removeFirst();

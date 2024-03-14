@@ -17,26 +17,36 @@ public class ArrayStack<E> implements Stack<E> {
         array = new Array<>();
     }
 
+    // time complexity O(1)
     @Override
     public int getSize() {
         return array.getSize();
     }
 
+    // time complexity O(1)
     @Override
     public boolean isEmpty() {
         return array.isEmpty();
     }
 
+    /**
+     * time complexity O(1) 均摊复杂度
+     */
     @Override
     public E pop() {
         return array.removeLast();
     }
-
+    /**
+     * time complexity O(1)
+     */
     @Override
     public E peek() {
         return array.getLast();
     }
 
+    /**
+     * time complexity O(1) 均摊复杂度
+     */
     @Override
     public void push(E e) {
         array.addLast(e);
