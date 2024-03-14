@@ -46,6 +46,10 @@ public class LoopQueue<E> implements Queue<E> {
         tail = (tail + 1) % data.length;
     }
 
+    /**
+     * time complexity is O(1) average, much better than previous implementation which is O(n)
+     * @return
+     */
     @Override
     public E dequeue() {
         if (isEmpty()) {
