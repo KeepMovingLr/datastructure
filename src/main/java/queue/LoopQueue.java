@@ -12,6 +12,7 @@ public class LoopQueue<E> implements Queue<E> {
     private int size;
 
     public LoopQueue(int capacity) {
+        // as we need waste one element to check if the queue is full
         data = (E[]) new Object[capacity + 1];
         front = 0;
         tail = 0;
