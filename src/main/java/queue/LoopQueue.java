@@ -8,6 +8,8 @@ package queue;
 public class LoopQueue<E> implements Queue<E> {
 
     private E[] data;
+
+    // tail always point to the next element location to be added
     private int front, tail;
     private int size;
 
