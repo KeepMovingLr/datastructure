@@ -104,6 +104,10 @@ public class SkipList {
         return current != null && current.value == target;
     }
 
+    /**
+     * return
+     * @return
+     */
     private int randomLevel() {
         int lvl = 0;
         while (lvl < MAX_LEVEL - 1 && random.nextDouble() < P) {
