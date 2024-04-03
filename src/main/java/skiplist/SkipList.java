@@ -3,6 +3,7 @@ package skiplist;
 import java.util.Random;
 
 /**
+ * paper: https://redirect.cs.umbc.edu/courses/undergraduate/341/fall01/Lectures/SkipLists/skip_lists/skip_lists.html
  * Skip list explanation:  https://en.wikipedia.org/wiki/Skip_list
  * https://www.youtube.com/watch?v=ol-FaNLXlR0
  * <p>
@@ -15,11 +16,11 @@ public class SkipList {
         /**
          * An array of pointers to the next nodes at different levels
          */
-        Node[] next;
+        Node[] forward;
 
         public Node(Integer value, int level) {
             this.value = value;
-            this.next = new Node[level];
+            this.forward = new Node[level];
         }
     }
 
@@ -43,8 +44,8 @@ public class SkipList {
         Node[] update = new Node[MAX_LEVEL];
         Node current = this.head;
         for (int i = this.level; i >= 0; i--) {
-            while (current.next[i] != null && current.next[i].value < num) {
-                current = current.next[i];
+            while (current.forward[i] != null && current.forward[i].value < num) {
+                current = current.forward[i];
             }
             update[i] = current;
         }
@@ -60,8 +61,8 @@ public class SkipList {
 
         Node newNode = new Node(num, lvl + 1);
         for (int i = 0; i <= lvl; i++) {
-            newNode.next[i] = update[i].next[i];
-            update[i].next[i] = newNode;
+            newNode.forward[i] = update[i].forward[i];
+            update[i].forward[i] = newNode;
         }
     }
 
@@ -69,23 +70,23 @@ public class SkipList {
         Node[] update = new Node[MAX_LEVEL];
         Node current = this.head;
         for (int i = this.level; i >= 0; i--) {
-            while (current.next[i] != null && current.next[i].value < num) {
-                current = current.next[i];
+            while (current.forward[i] != null && current.forward[i].value < num) {
+                current = current.forward[i];
             }
             update[i] = current;
         }
 
-        current = current.next[0];
+        current = current.forward[0];
         if (current == null || current.value != num) {
             return false;
         }
 
         for (int i = 0; i <= this.level; i++) {
-            if (update[i].next[i] != current) break;
-            update[i].next[i] = current.next[i];
+            if (update[i].forward[i] != current) break;
+            update[i].forward[i] = current.forward[i];
         }
 
-        while (this.level > 0 && head.next[this.level] == null) {
+        while (this.level > 0 && head.forward[this.level] == null) {
             this.level--;
         }
 
@@ -95,11 +96,11 @@ public class SkipList {
     public boolean search(int target) {
         Node current = this.head;
         for (int i = this.level; i >= 0; i--) {
-            while (current.next[i] != null && current.next[i].value < target) {
-                current = current.next[i];
+            while (current.forward[i] != null && current.forward[i].value < target) {
+                current = current.forward[i];
             }
         }
-        current = current.next[0];
+        current = current.forward[0];
         return current != null && current.value == target;
     }
 
