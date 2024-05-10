@@ -2,10 +2,10 @@ package unionFind;
 
 /**
  * @author enyi.lr
- * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$
+ * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$ <br>
  * Quick Union implement,<br> noted, there is no O(1) operation in Quick Union implement <br>
- * find - O(h)   h is the height of the tree. the worst time complexity is O(n).
- * union - O(h)  h is the height of the tree. the worst time complexity is O(n).
+ * find - O(h)   h is the height of the tree. the worst time complexity is O(n). <br>
+ * union - O(h)  h is the height of the tree. the worst time complexity is O(n). <br>
  *
  */
 public class UnionFind2 implements UF {
