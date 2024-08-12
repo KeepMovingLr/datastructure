@@ -7,6 +7,28 @@ package tree.binarySearch;
 public class BinarySearch {
 
     /**
+     * binary search in Array arr
+     * @param arr
+     * @param target
+     * @return
+     */
+    public int binaryS(int[] arr, int target) {
+        int l = 0, r = arr.length - 1; // search in [l , r]
+        while (l <= r) { // when l == r, the range is still valid, so we need to use l<= r rather than l < r
+            int mid = l + (r - l) / 2;
+            if (arr[mid] == target) {
+                return mid;
+            }
+            if (target > arr[mid]) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
      * Returns index of x if it is present in array, else return -1
      */
     public int binarySearch(int[] arr, int target) {
@@ -55,10 +77,10 @@ public class BinarySearch {
     /**
      * get the index with the largest data smaller or equal to target
      * there are two ways to solve the problem. one is for loop the whole array.
-     * @param arr a sorted array
+     *
+     * @param arr    a sorted array
      * @param target
-     * @return
-     * referer https://www.geeksforgeeks.org/floor-in-a-sorted-array/
+     * @return referer https://www.geeksforgeeks.org/floor-in-a-sorted-array/
      */
     public int floor(int[] arr, int target) {
 
