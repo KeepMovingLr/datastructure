@@ -11,6 +11,7 @@ public class BinarySearch {
      * @param arr
      * @param target
      * @return
+     * note: it is important to know the definition of each variable. and keep the variable the same with the previous defination.
      */
     public int binaryS(int[] arr, int target) {
         int l = 0, r = arr.length - 1; // search in [l , r]
