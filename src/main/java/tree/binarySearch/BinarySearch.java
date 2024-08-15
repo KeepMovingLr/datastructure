@@ -29,6 +29,22 @@ public class BinarySearch {
         return -1;
     }
 
+    public int binaryS2(int[] arr, int target) {
+        int l = 0, r = arr.length; // search in [l , r)
+        while (l < r) { // when l == r, the range is not valid, so we need to use l < r
+            int mid = l + (r - l) / 2;
+            if (arr[mid] == target) {
+                return mid;
+            }
+            if (target > arr[mid]) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return -1;
+    }
+
     /**
      * Returns index of x if it is present in array, else return -1
      */
