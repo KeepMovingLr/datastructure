@@ -112,6 +112,7 @@ public class SegmentTree<E> {
         set(0, 0, data.length - 1, index, value);
     }
 
+    // 在以treeRoot 为跟的线段树中更新index的值为E
     private void set(int treeRoot, int l, int r, int index, E value) {
         if (l == r) {
             tree[treeRoot] = value;
