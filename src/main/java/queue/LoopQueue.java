@@ -4,6 +4,10 @@ package queue;
  * @author enyi.lr
  * @version $Id: LoopQueue.java, v 0.1 2019‐05‐18 4:30 PM enyi.lr Exp $$
  * no need to move data in queue when we implement queue by using an array
+ *
+ * A loop (circular) queue is ideal when you have a fixed-size buffer
+ * where old data is consumed or overwritten at roughly the same rate new data arrives.
+ * The key advantage over a linear queue is that you never need to shift elements — both enqueue and dequeue are O(1).
  */
 public class LoopQueue<E> implements Queue<E> {
 
