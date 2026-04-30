@@ -4,8 +4,18 @@ package unionFind;
  * @author enyi.lr
  * @version $Id: UnionFind1.java, v 0.1 2019‐06‐02 10:16 PM enyi.lr Exp $$ <br>
  * Path Compression Optimization
- * time complexity O(log*n)， iterated logarithm. <br>
+ * time complexity O(log*n)， iterated logarithm.<br> 
+ * actually time complexity should be O(α(n))
  * faster than O(log(n)) but slower than O(1)
+ * 
+Your UnionFind6.java:7 comment says "O(log*n), iterated logarithm" — that's the Hopcroft–Ullman (1973) bound for union-find with path compression + union-by-rank.
+Tarjan (1975) later tightened it to O(α(n)), which is the bound textbooks use today. So:
+
+log*(n) — older, looser bound (still correct, just not tight)
+α(n) — modern, tight bound
+You can update the comment to O(α(n)) if you want to match current convention, but log*(n) isn't wrong — it's an upper bound that happens to be slightly loose.
+
+
  */
 public class UnionFind6 implements UF {
 
